@@ -1437,3 +1437,46 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/50
   avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
   title: Upstream
+- author: Wendor
+  changes:
+    - type: Add
+      message: >-
+        [Переработка выдачи
+        токенов](https://discord.com/channels/1357728304710422680/1546258774459682826)
+    - type: Add
+      message: Старые коды угроз
+    - type: Add
+      message: Adminwho для всех!
+    - type: Remove
+      message: Выдача коинов за игру на антагах
+    - type: Fix
+      message: >-
+        [Большая часть багов из
+        баг-репортов](https://discord.com/channels/1357728304710422680/1540061285029257266)
+    - type: Fix
+      message: Спрайт штампа ПНТ
+    - type: Fix
+      message: Локализация ОСЩ-
+    - type: Fix
+      message: Гипоспрей ОСЩ
+    - type: Fix
+      message: Дюп искуств
+    - type: Fix
+      message: хитбокс теперь статичный, рост не меняет его
+    - type: Fix
+      message: Добавление волос для хидракинов
+    - type: Fix
+      message: Проблема с "рандомным" TTS после клонирования
+    - type: Fix
+      message: Маппул
+    - type: Fix
+      message: Скелет больше не кровоточит
+    - type: Fix
+      message: Дрель имеет больше тегов теперь
+    - type: Fix
+      message: Слаймов можно снять с головы
+  id: 121
+  time: '2026-09-12T12:20:16.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/52
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: Fix
