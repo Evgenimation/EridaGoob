@@ -55,8 +55,13 @@ public sealed class SetSelectorSystem : EntitySystem
 
     private void OnApprove(Entity<SetSelectorComponent> selector, ref SetSelectorApproveMessage args)
     {
+        if (selector.Comp.Approved)
+            return;
+
         if (selector.Comp.SelectedSets.Count != selector.Comp.MaxSelectedSets)
             return;
+
+        selector.Comp.Approved = true;
 
         EntityUid spawnedStorage = default;
         var storagePrototype = selector.Comp.SpawnedStoragePrototype;

@@ -41,6 +41,9 @@
 - type: markingPoints
   id: MobHydrakinMarkingLimits
   points:
+    Hair:
+      points: 10
+      required: false # erida edit - allow removing hair
     Snout:
       points: 10
       required: false

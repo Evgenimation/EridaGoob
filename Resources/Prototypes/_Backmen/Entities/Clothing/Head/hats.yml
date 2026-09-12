@@ -60,7 +60,7 @@
 
 # erida edit
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHatArmored
   id: ClothingHeadCapSecurityPilot
   name: security pilot cap
   description: Security pilot's cap.
@@ -69,9 +69,3 @@
     sprite: _Backmen/Clothing/Head/Hats/secpilotcap.rsi
   - type: Clothing
     sprite: _Backmen/Clothing/Head/Hats/secpilotcap.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5

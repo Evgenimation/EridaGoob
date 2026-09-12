@@ -132,6 +132,7 @@
   - Warden
   - Brigmedic # Goob
   - SecurityClown # event-restricted, Goob
+  - SecurityPilot # Corvax-Pilot
 
 - type: department
   id: Science

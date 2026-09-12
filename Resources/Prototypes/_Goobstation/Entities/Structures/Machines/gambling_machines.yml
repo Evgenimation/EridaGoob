@@ -106,6 +106,16 @@
         map: ["slotmachine_spin"]
       - state: panel
         map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: SlotMachine
+    smallPrizeAmount: 25000
+    mediumPrizeAmount: 50000
+    bigPrizeAmount: 150000
+    jackPotPrizeAmount: 0
+    smallWinChance: 0.45
+    mediumWinChance: 0.30
+    bigWinChance: 0.25
+    jackPotWinChance: 0
+    godPotWinChance: 0
   - type: WiresPanel
   - type: WiresVisuals
   - type: Wires

@@ -11,10 +11,9 @@
     species: Anthropomorph
     hideLayersOnEquip:
     - Hair
-    - Snout
     - HeadTop
     - HeadSide
-    - Tail
+    - Tail # erida edit - don't hide Snout
   - type: Inventory
     speciesId: Anthropomorph
     displacements:

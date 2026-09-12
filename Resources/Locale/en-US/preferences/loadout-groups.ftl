@@ -187,6 +187,12 @@ loadout-group-security-belt = Security Belt
 loadout-group-security-outerclothing = Security outer clothing
 loadout-group-security-shoes = Security shoes
 loadout-group-security-id = Security ID
+loadout-group-security-pilot-head = Security pilot head
+loadout-group-security-pilot-jumpsuit = Security pilot jumpsuit
+loadout-group-security-pilot-outerclothing = Security pilot outer clothing
+loadout-group-security-pilot-belt = Security pilot belt
+loadout-group-security-pilot-shoes = Security pilot shoes
+loadout-group-security-pilot-eyes = Security pilot eyes
 
 loadout-group-detective-head = Detective head
 loadout-group-detective-neck = Detective neck

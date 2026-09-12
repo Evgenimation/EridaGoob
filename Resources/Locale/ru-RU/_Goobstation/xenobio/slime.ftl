@@ -13,3 +13,5 @@ slime-eat-corpse-fail-not-dead = {THE($target)} должен быть мёртв
 slime-eat-corpse-fail-not-eatable = {THE($target)} не выглядит съедобным.
 
 slime-eat-corpse-success = {THE($eater)} пытается оторвать что-то от {THE($target)}!
+slime-latch-unlatch-verb = Отцепить
+slime-unlatch-attempt = Вы пытаетесь снять слизня…

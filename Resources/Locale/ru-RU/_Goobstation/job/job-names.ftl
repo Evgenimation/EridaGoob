@@ -45,7 +45,8 @@ job-name-mercenarycaptain = капитан Наёмников
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
-JobBlueshieldOfficer = офицер "Синий Щит"
+JobBlueshieldOfficer = Офицер Синий Щит
+job-name-bso = Офицер Синий Щит
 JobNanotrasenRepresentative = представитель NanoTrasen
 JobNanotrasenCareerTrainer = наставник ЦК
 JobHecuOperative = агент HECU

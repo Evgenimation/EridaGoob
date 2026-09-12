@@ -22,7 +22,7 @@
   canBeAntag: false
   guides: # goobstation
   - KravMaga
-  goobcoins: 35 #Goob content
+  goobcoins: 50 #Goob content
   access:
   - Security
   - Brig

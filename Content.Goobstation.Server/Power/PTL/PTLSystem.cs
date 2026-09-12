@@ -13,6 +13,8 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Stacks;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Systems;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -39,8 +41,9 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly AudioSystem _aud = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly SharedToolSystem _tool = default!;
 
-    private static readonly ProtoId<TagPrototype> _tagScrewdriver = "Screwdriver";
+    private static readonly ProtoId<ToolQualityPrototype> _qualityScrewing = "Screwing";
     private static readonly ProtoId<TagPrototype> _tagMultitool = "Multitool";
 
     private readonly SoundPathSpecifier _soundKaching = new("/Audio/Effects/kaching.ogg");
@@ -181,7 +184,7 @@ public sealed partial class PTLSystem : EntitySystem
 
         var held = args.Used;
 
-        if (_tag.HasTag(held, _tagScrewdriver))
+        if (_tool.HasQuality(held, _qualityScrewing))
         {
             var delay = ent.Comp.ShootDelay + ent.Comp.ShootDelayIncrement;
             if (delay > ent.Comp.ShootDelayThreshold.Max)

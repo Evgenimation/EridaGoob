@@ -24,7 +24,7 @@
   guides: # goobstation
   - Engineering
   - Command
-  goobcoins: 40 #Goob content
+  goobcoins: 75 #Goob content
   access:
   - Maintenance
   - Engineering

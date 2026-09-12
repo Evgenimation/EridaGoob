@@ -146,12 +146,12 @@ public sealed partial class StoreSystem
         if (prototype.ResetRestockOnPurchase)
         {
             var restockDuration = prototype.RestockDuration;
-            listing.RestockTime = _timing.CurTime + restockDuration;
+            listing.RestockTime = _timing.CurTime - _gameTicker.RoundStartTimeSpan + restockDuration; // erida edit
         }
         if (listing.ResetRestockOnPurchase)
         {
             var restockDuration = listing.RestockAfterPurchase ?? listing.RestockDuration;
-            listing.RestockTime = _timing.CurTime + restockDuration;
+            listing.RestockTime = _timing.CurTime - _gameTicker.RoundStartTimeSpan + restockDuration; // erida edit
         }
     }// goob end
 }

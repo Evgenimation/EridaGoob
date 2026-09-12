@@ -698,6 +698,29 @@
   - SecurityOfficerEnvirogloves
 
 - type: roleLoadout
+  id: JobSecurityPilot
+  groups:
+  - SecurityHeadPilot
+  - SecurityJumpsuitPilot
+  - SecurityBackpack
+  - SecurityMelee # Goobstation
+  - SecurityOuterClothingPilot
+  - SecurityShoesPilot
+  - SecurityNeck
+  - SecurityClothingBeltPilot
+  - SecurityEyesPilot
+  - SurvivalSecurity
+  - Trinkets
+  # Erida start
+  - Undershirt
+  - Underwear
+  - Socks
+  # Erida end
+  - SecurityJobTrinkets
+  - Animals # Goobstation
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
   id: JobDetective
   groups:
   - DetectiveHead

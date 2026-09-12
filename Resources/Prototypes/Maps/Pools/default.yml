@@ -4,18 +4,18 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - BackmenAspid
-  - BackmenBox
-  - BackmenDelta
-  - BackmenHive
-  - BackmenKettle
-  - BackmenRook
-  - BackmenShoukou
-  - BackmenTortuga
+  # - BackmenAspid
+  # - BackmenBox
+  # - BackmenHive
+  # - BackmenKettle
+  # - BackmenRook
+  # - BackmenShoukou
+  # - BackmenTortuga
+  - EridaBox
+  - EridaDelta
   - EridaAmber
   - EridaAspid
   - EridaBagel
-  - EridaBox
   - EridaConvex
   - EridaElkridge
   - EridaFland
@@ -31,5 +31,3 @@
   - EridaShoukou
   - EridaTortuga
   - EridaTrain
-  - EridaDelta
-  - CentComm

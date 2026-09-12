@@ -26,6 +26,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!; // erida edit
     #endregion
     #region Constants
     private const float AltBleedingSpriteChance = 0.15f;
@@ -353,6 +354,13 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         }
 
         SetLayerVisible(sprite, spriteLayer, true);
+
+        // erida edit - no blood on sprites for entities without a bloodstream (for example, the skeleton)
+        if (!_bloodstream.HasBloodstream(sprite.Owner))
+        {
+            SetLayerVisible(sprite, spriteLayer, false);
+            return;
+        }
 
         var rsi = _sprite.LayerGetEffectiveRsi(sprite, spriteLayer);
         if (rsi == null)

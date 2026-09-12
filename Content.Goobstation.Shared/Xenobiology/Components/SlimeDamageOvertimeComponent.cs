@@ -39,6 +39,15 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     public FixedPoint2 ToxinUnits = 0.15;
 
     [DataField]
+    public TimeSpan Interval = TimeSpan.FromSeconds(1);
+
+    [DataField]
+    public float UnlatchBloodPercentage = 0.15f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextTickTime = TimeSpan.Zero;
+
+    [DataField]
     public DamageSpecifier Damage = new()
     {
         DamageDict = new Dictionary<string, FixedPoint2>

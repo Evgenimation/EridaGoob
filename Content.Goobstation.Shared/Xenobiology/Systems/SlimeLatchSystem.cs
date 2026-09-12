@@ -27,6 +27,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.Verbs;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Xenobiology;
@@ -71,6 +72,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         SubscribeLocalEvent<SlimeComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<SlimeComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<SlimeComponent, EntGotInsertedIntoContainerMessage>(OnEntGotInsertedIntoContainer);
+        SubscribeLocalEvent<SlimeComponent, SlimeUnlatchDoAfterEvent>(OnSlimeUnlatchDoAfter);
+        SubscribeLocalEvent<SlimeComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
         SubscribeLocalEvent<SlimeComponent, SelfBeforeClimbEvent>(OnSelfBeforeClimb);
         SubscribeLocalEvent<SlimeComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, WakeDamageOverrideEvent>(OnWakeOverride);
@@ -117,8 +120,10 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (_hungerQuery.TryComp(source, out var hunger))
             _hunger.ModifyHunger(source, addedHunger, hunger);
 
-        var stomachList = _body.GetBodyOrganEntityComps<StomachComponent>(source);
+        if (!HasComp<BodyComponent>(source))
+            return;
 
+        var stomachList = _body.GetBodyOrganEntityComps<StomachComponent>(source);
         if (stomachList.Count == 0)
             return;
 
@@ -132,6 +137,14 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (_bloodstreamQuery.TryComp(ent, out var bloodstream)
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood))
         {
+            if (blood.MaxVolume > 0
+                && blood.Volume / blood.MaxVolume <= ent.Comp.UnlatchBloodPercentage
+                && _slimeQuery.TryComp(source, out var unlatchSlime))
+            {
+                Unlatch((source, unlatchSlime));
+                return;
+            }
+
             var chem = blood; // Don't resolve twice
 
             var totalVolume = chem.Volume + blood.Volume;
@@ -212,6 +225,45 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             return;
 
         Unlatch(ent);
+    }
+
+    private void OnGetVerbs(Entity<SlimeComponent> ent, ref GetVerbsEvent<InteractionVerb> args) // erida edit
+    {
+        if (!IsLatched(ent) || args.CanAccess == false || args.CanInteract == false)
+            return;
+
+        var user = args.User;
+        InteractionVerb verb = new()
+        {
+            Act = () => TryStartSlimeUnlatch(ent, user),
+            Text = Loc.GetString("slime-latch-unlatch-verb"),
+            Priority = 1,
+        };
+        args.Verbs.Add(verb);
+    }
+
+    private void TryStartSlimeUnlatch(Entity<SlimeComponent> ent, EntityUid user) // erida edit
+    {
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, ent.Comp.UnlatchDoAfterDuration,
+            new SlimeUnlatchDoAfterEvent(), ent, used: ent)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnHandChange = true,
+            NeedHand = true,
+        };
+
+        if (_doAfter.TryStartDoAfter(doAfterArgs))
+            _popup.PopupEntity(Loc.GetString("slime-unlatch-attempt"), user, user);
+    }
+
+    private void OnSlimeUnlatchDoAfter(Entity<SlimeComponent> ent, ref SlimeUnlatchDoAfterEvent args) // erida edit
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        Unlatch(ent);
+        args.Handled = true;
     }
 
     private void OnLatchAttempt(Entity<SlimeComponent> ent, ref SlimeLatchEvent args)

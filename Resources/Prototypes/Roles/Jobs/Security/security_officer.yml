@@ -15,7 +15,7 @@
   canBeAntag: false
   guides: # goobstation
   - CorporateJudo
-  goobcoins: 30 #Goob content
+  goobcoins: 50 #Goob content
   access:
   - Security
   - Brig

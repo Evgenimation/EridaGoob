@@ -68,6 +68,7 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+    - HeadSide # erida edit
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

@@ -9,7 +9,7 @@
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop
   guides: [ Janitorial ] # goobstation
-  goobcoins: 20 # Goobstation
+  goobcoins: 25 # Goobstation
   access:
   - Service
   - Janitor

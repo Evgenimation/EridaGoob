@@ -271,11 +271,14 @@
                        "name":  "blood_paper"
                    },
                    {
-                       "name":  "paper_stamp-signature"
-                   },
-                   {
-                       "name":  "contract-written"
-                   },
+                        "name":  "paper_stamp-signature"
+                    },
+                    {
+                        "name":  "paper_stamp-nanorep"
+                    },
+                    {
+                        "name":  "contract-written"
+                    },
                    {
                        "name":  "nanotrasen_card"
                    },

@@ -2,7 +2,7 @@
   id: EridaDelta
   mapName: 'WonderDelta Station'
   mapPath: /Maps/Erida/WonderDelta.yml
-  minPlayers: 8 # Erida
+  minPlayers: 10
   stations:
     Delta:
       stationProto: StandardNanotrasenStation

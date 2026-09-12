@@ -47,6 +47,8 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Wink: # erida edit
+      collection: Wink
 
 - type: emoteSounds
   id: FemaleHuman
@@ -95,6 +97,8 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Wink: # erida edit
+      collection: Wink
 
 - type: emoteSounds ## GOOB CONTENT START
   id: MonkeyMode
@@ -876,6 +880,8 @@
       collection: Salutes
     Crack: # Imp
       collection: Cracks # Imp
+    Wink: # erida edit
+      collection: Wink
 
 - type: emoteSounds
   id: DionaBodyEmotes

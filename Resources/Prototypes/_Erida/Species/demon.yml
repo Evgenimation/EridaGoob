@@ -22,7 +22,7 @@
     Chest: MobDemonTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Tail: MobDemonTail
+    Tail: MobHumanoidAnyMarking # erida edit
     Eyes: MobHumanoidEyes
     LArm: MobDemonLArm
     RArm: MobDemonRArm
@@ -54,6 +54,7 @@
     Tail:
       points: 10
       required: false
+      defaultMarkings: [ DemonTail ] # erida edit
     Snout:
       points: 10
       required: false
@@ -147,9 +148,3 @@
   baseSprite:
     sprite: _Erida/Mobs/Demon/parts.rsi
     state: r_foot
-
-- type: humanoidBaseSprite
-  id: MobDemonTail
-  baseSprite:
-    sprite: _Erida/Mobs/Demon/parts.rsi
-    state: tail

@@ -12,7 +12,6 @@
     engineering: _Erida/Structures/Doors/Airlocks/Standard/engineering.rsi
     freezer:     _Erida/Structures/Doors/Airlocks/Standard/freezer.rsi
     hydroponics: _Erida/Structures/Doors/Airlocks/Standard/hydroponics.rsi
-    janitor:     _Goobstation/Structures/Doors/Airlocks/Standard/janitor.rsi # Goobstation - Sweet jani door recolour
     maintenance: _Erida/Structures/Doors/Airlocks/Standard/maint.rsi
     medical:     _Erida/Structures/Doors/Airlocks/Standard/medical.rsi
     salvage:     _Erida/Structures/Doors/Airlocks/Standard/salvage.rsi
@@ -34,7 +33,6 @@
     engineering: _Erida/Structures/Doors/Airlocks/Glass/engineering.rsi
     glass:       _Erida/Structures/Doors/Airlocks/Glass/glass.rsi
     hydroponics: _Erida/Structures/Doors/Airlocks/Glass/hydroponics.rsi
-    janitor:     _Goobstation/Structures/Doors/Airlocks/Glass/janitor.rsi # Goobstation - Sweet jani door recolour
     maintenance: _Erida/Structures/Doors/Airlocks/Glass/maint.rsi
     medical:     _Erida/Structures/Doors/Airlocks/Glass/medical.rsi
     salvage:     _Erida/Structures/Doors/Airlocks/Glass/salvage.rsi

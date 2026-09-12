@@ -51,6 +51,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     private bool _showGreentext;
 
     private int _goobcoinsServerMultiplier = 1;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -241,7 +242,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("progress", progress)
                         ));
                         completedObjectives++;
-
                         // Easiest place to give people points for completing objectives lol
                         if (userid.HasValue)
                             if (currencyStorage.ContainsKey(userid.Value))

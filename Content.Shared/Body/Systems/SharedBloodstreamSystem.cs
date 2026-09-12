@@ -11,6 +11,7 @@ using System.Linq;
 using Content.Shared.Alert;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
+using Content.Shared.Body.Part;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
@@ -408,6 +409,18 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         }
 
         return (float)totalBloodLevel;
+    }
+
+    /// <summary>
+    /// Returns true if the entity has a bloodstream (i.e. it can bleed).
+    /// </summary>
+    public bool HasBloodstream(EntityUid uid)
+    {
+        // If the uid is a body part, resolve to its parent body.
+        if (TryComp<BodyPartComponent>(uid, out var part) && part.Body is { } body)
+            uid = body;
+
+        return TryComp<BloodstreamComponent>(uid, out _);
     }
 
     /// <summary>

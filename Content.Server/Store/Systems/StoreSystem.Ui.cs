@@ -23,6 +23,7 @@ using Content.Shared.PDA.Ringer;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
+using Content.Shared.GameTicking;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -46,6 +47,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly HereticSystem _heretic = default!; // goobstation - heretics
     [Dependency] private readonly IGameTiming _timing = default!; // goobstation - ntr update
+    [Dependency] private readonly SharedGameTicker _gameTicker = default!; // erida edit
 
     private void InitializeUi()
     {
@@ -348,7 +350,7 @@ public sealed partial class StoreSystem
         {
             // making sure that you cant buy some stuff endlessly if they are not meant to
             var restockDuration = listing.RestockAfterPurchase ?? listing.RestockDuration; // Просто используем значение напрямую
-            listing.RestockTime = _timing.CurTime + restockDuration;
+            listing.RestockTime = _timing.CurTime - _gameTicker.RoundStartTimeSpan + restockDuration; // erida edit
         } // goob edit end
 
     }

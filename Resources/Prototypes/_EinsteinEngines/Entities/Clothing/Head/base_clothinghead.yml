@@ -46,6 +46,8 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide # erida edit
     clothingSlots:
     - mask
   - type: ToggleableVisuals

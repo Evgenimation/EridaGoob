@@ -2,7 +2,7 @@
   id: EridaBox
   mapName: 'Box Station'
   mapPath: /Maps/Erida/box.yml
-  minPlayers: 50
+  minPlayers: 10
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation
@@ -52,6 +52,8 @@
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 5, 7 ]
             Detective: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            SecurityPilot: [ 1, 1 ]
             SecurityCadet: [ 2, 4 ] #intern, exclude from dept count
             Lawyer: [ 2, 2 ]
             #Supply (6)

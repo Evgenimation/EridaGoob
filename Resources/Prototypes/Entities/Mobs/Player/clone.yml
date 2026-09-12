@@ -15,6 +15,7 @@
   - Fingerprint
   - NpcFactionMember
   - EncryptionKeyHolder # Goobstation
+  - TTS # erida edit
   # traits
   - BlackAndWhiteOverlay
   - Clumsy

@@ -24,7 +24,7 @@
   guides: # goobstation
   - Command
   - Writing
-  goobcoins: 40 #Goob content
+  goobcoins: 75 #Goob content
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"

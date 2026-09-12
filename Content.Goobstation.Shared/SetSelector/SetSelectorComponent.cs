@@ -56,4 +56,10 @@ public sealed partial class SetSelectorComponent : Component
 
     [DataField]
     public SoundSpecifier? ApproveSound;
+
+    /// <summary>
+    /// Set once the selector has been approved. Prevents duplicate spawns from spamming the approve button.
+    /// </summary>
+    [DataField]
+    public bool Approved;
 }

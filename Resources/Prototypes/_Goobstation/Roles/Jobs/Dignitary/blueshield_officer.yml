@@ -23,7 +23,7 @@
       - Felinid
   guides:
   - Command
-  goobcoins: 45
+  goobcoins: 50
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
@@ -31,20 +31,48 @@
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
   access:
-  - Security
-  - Brig
-  - External
-  - Cryogenics
-  - Maintenance
-  - Engineering
-  - Medical
-  - Research
-  - Command
-  - CentralCommand
+  - Armory
+  - Atmospherics
+  - Bar
+  - BasicSilicon
   - BlueshieldOfficer
-  - Service
-  - Hydroponics
+  - Borg
+  - Brig
+  - Captain
   - Cargo
+  - CentralCommand
+  - Chapel
+  - Chemistry
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - Command
+  - Cryogenics
+  - Detective
+  - EmergencyShuttleRepealAll
+  - Engineering
+  - External
+  - GenpopEnter
+  - GenpopLeave
+  - HeadOfPersonnel
+  - HeadOfSecurity
+  - Hydroponics
+  - Janitor
+  - Journalism
+  - Kitchen
+  - Lawyer
+  - Maintenance
+  - Medical
+  - NanotrasenRepresentative
+  - Paramedic
+  - Quartermaster
+  - Research
+  - ResearchDirector
+  - Robotics
+  - Salvage
+  - Security
+  - Service
+  - StationAi
+  - Theatre
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Go big, or go home.

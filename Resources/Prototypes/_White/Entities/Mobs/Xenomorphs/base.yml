@@ -54,6 +54,7 @@
         Base: xenomorph_unconscious
       Dead:
         Base: xenomorph_dead
+  - type: StandingState
   - type: MobThresholds
     thresholds:
       0: Alive

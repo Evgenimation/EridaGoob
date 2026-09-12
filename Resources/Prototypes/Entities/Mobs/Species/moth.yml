@@ -11,6 +11,7 @@
     species: Moth
     hideLayersOnEquip:
     - HeadTop
+    - HeadSide # erida edit
   - type: Hunger
   - type: Thirst
   - type: Icon

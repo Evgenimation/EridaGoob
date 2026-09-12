@@ -10,7 +10,7 @@ public sealed partial class CCVars
     ///     Whether height & width sliders adjust a character's Fixture Component
     /// </summary>
     public static readonly CVarDef<bool> HeightAdjustModifiesHitbox =
-        CVarDef.Create("heightadjust.modifies_hitbox", true, CVar.SERVERONLY);
+        CVarDef.Create("heightadjust.modifies_hitbox", false, CVar.SERVERONLY); // erida edit
 
     /// <summary>
     ///     Whether height & width sliders adjust a player's max view distance

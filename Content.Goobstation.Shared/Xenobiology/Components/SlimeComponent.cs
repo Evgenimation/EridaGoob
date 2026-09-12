@@ -75,6 +75,9 @@ public sealed partial class SlimeComponent : Component
     [DataField]
     public TimeSpan LatchDoAfterDuration = TimeSpan.FromSeconds(1);
 
+    [DataField]
+    public TimeSpan UnlatchDoAfterDuration = TimeSpan.FromSeconds(3.5); // erida edit
+
     /// <summary>
     /// The entity which has tamed this slime.
     /// </summary>

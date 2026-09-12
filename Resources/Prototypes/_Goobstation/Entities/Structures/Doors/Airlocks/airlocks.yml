@@ -1,25 +1,21 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity # Goobstation - Sweet jani door recolour
+- type: entity # erida edit - use standard erida sprites
   parent: Airlock
   id: AirlockJanitor
   suffix: Janitor
   components:
-  - type: Sprite
-    sprite: _Goobstation/Structures/Doors/Airlocks/Standard/janitor.rsi
   - type: PaintableAirlock
     group: Standard
     department: Civilian
   - type: Wires
     layoutId: AirlockService
 
-- type: entity
+- type: entity # erida edit - use standard erida sprites
   parent: AirlockGlass
   id: AirlockJanitorGlass
   suffix: Janitor
   components:
-  - type: Sprite
-    sprite: _Goobstation/Structures/Doors/Airlocks/Glass/janitor.rsi
   - type: PaintableAirlock
     group: Glass
     department: Civilian
