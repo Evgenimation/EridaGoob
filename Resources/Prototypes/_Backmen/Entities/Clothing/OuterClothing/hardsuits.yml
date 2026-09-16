@@ -14,6 +14,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityPilot
+    slot: head
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: Armor

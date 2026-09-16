@@ -135,7 +135,7 @@
   name: trait-language-nekomimetic-name
   description: trait-language-nekomimetic-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -148,7 +148,7 @@
   name: trait-language-mar-name
   description: trait-language-mar-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -161,7 +161,7 @@
   name: trait-language-demonic-name
   description: trait-language-demonic-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -174,7 +174,7 @@
   name: trait-language-shark-name
   description: trait-language-shark-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -187,7 +187,7 @@
   name: trait-language-canilunzt-name
   description: trait-language-canilunzt-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -200,7 +200,7 @@
   name: trait-language-spider-name
   description: trait-language-spider-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -213,7 +213,7 @@
   name: trait-language-rootspeak-name
   description: trait-language-rootspeak-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -226,7 +226,7 @@
   name: trait-language-dwarven-name
   description: trait-language-dwarven-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -239,7 +239,7 @@
   name: trait-language-moffic-name
   description: trait-language-moffic-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -252,7 +252,7 @@
   name: trait-language-dragon-name
   description: trait-language-dragon-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -265,7 +265,7 @@
   name: trait-language-slime-name
   description: trait-language-slime-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:
@@ -278,7 +278,7 @@
   name: trait-language-freespeak-name
   description: trait-language-freespeak-desc
   category: Language
-  cost: 2
+  cost: 5
   effects:
   - !type:AddCompsEffect
     components:

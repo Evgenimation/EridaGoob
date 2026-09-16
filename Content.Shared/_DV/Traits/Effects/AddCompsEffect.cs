@@ -1,3 +1,4 @@
+using Content.Shared._Erida.Language; // Erida edit
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Traits.Effects;
@@ -21,6 +22,27 @@ public sealed partial class AddCompsEffect : BaseTraitEffect
 
     public override void Apply(TraitEffectContext ctx)
     {
+        // Erida start - more languages
+        foreach (var entry in Components.Values)
+        {
+            if (entry.Component is not LanguageOnSpawnComponent languages)
+                continue;
+
+            if (!ctx.EntMan.TryGetComponent<LanguageOnSpawnComponent>(ctx.Player, out var comp))
+            {
+                comp = new LanguageOnSpawnComponent();
+                ctx.EntMan.AddComponent(ctx.Player, comp);
+            }
+
+            foreach (var language in languages.Languages)
+            {
+                if (!comp.Languages.Contains(language))
+                    comp.Languages.Add(language);
+            }
+            ctx.EntMan.Dirty(ctx.Player, comp);
+        }
+        // Erida end
+
         ctx.EntMan.AddComponents(ctx.Player, Components, removeExisting: RemoveExisting); // Erida edit
     }
 }

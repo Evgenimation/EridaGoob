@@ -34,6 +34,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             Reporter: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             #Engineering (8)
             AtmosphericTechnician: [ 3, 3 ]
@@ -41,6 +42,7 @@
             TechnicalAssistant: [ 4, 4 ] #intern, exclude from dept count
             #Medical (8)
             Chemist: [ 2, 2 ]
+            Virologist: [ 1, 1 ]
             MedicalDoctor: [ 4, 4 ]
             Paramedic: [ 1, 1 ]
             MedicalIntern: [ 4, 4 ] #intern, exclude from dept count

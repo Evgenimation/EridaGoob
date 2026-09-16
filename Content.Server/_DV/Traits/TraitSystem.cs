@@ -1,3 +1,4 @@
+using Content.Server._EinsteinEngines.Language; // Erida edit
 using Content.Shared._DV.CCVars;
 using Content.Shared._DV.Traits;
 using Content.Shared._DV.Traits.Conditions;
@@ -24,6 +25,7 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly LanguageSystem _language = default!; // Erida edit
 
     private int _maxTraitCount;
     private int _maxTraitPoints;
@@ -63,6 +65,9 @@ public sealed class TraitSystem : EntitySystem
 
             ApplyTrait(args.Mob, trait);
         }
+
+        // Erida edit
+        _language.UpdateEntityLanguages(args.Mob);
 
         // Send disabled traits notification to client if any were rejected
         if (disabledTraits.Count > 0)

@@ -19,7 +19,7 @@
     - HamsterWearable
 
 - type: entity
-  parent: ClothingEyesGlassesBlueShield
+  parent: [ClothingEyesGlassesBlueShield, ShowMedicalIcons]
   id: ClothingEyesBlueshieldVisor
   name: officer "Blueshield" visor
   description: Improved security technical visor, in blue coloring and built-in health scanner included.
@@ -65,3 +65,7 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - SiliconRadiation # Goobstation - Make IPCs take radiation

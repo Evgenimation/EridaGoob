@@ -53,6 +53,15 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Heat: -0.07
+        Blunt: -0.05
+        Piercing: -0.05
+        Slash: -0.05
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
