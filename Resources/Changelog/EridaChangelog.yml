@@ -1555,3 +1555,74 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/54
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: WenderDelta
+- author: rOmann299
+  changes:
+    - type: Add
+      message: спавнеры должностей Вирусолога и Радиоведущего
+    - type: Add
+      message: рандомный спавнер алтаря в храм
+    - type: Add
+      message: изменены маяки
+    - type: Add
+      message: техфабы отделов
+    - type: Add
+      message: больше радио на станцию
+    - type: Add
+      message: Законник в кабинет ГСБ
+    - type: Add
+      message: спавнеры рандомных автоматов с едой и водой в СБ
+    - type: Add
+      message: >-
+        турели СБ и Командования в оружейную и хранилище ядерки, добавлены
+        консоли для них
+    - type: Add
+      message: Пермабриг изменен на систему с турникетами и шкафами заключенных
+    - type: Add
+      message: Консоль починки ИИ в модуль ИИ
+    - type: Add
+      message: платы турелей ИИ, СБ и КМД в хранилище плат
+    - type: Add
+      message: больше мусорок
+    - type: Add
+      message: >-
+        больше аварийных кислородных, аварийных азотных, противопожарных шкафов
+        в техи
+    - type: Tweak
+      message: некоторые техи, добавлена спасательная капсула
+    - type: Tweak
+      message: вирусология, добавлен сервер вирусологии и консоль вирусолога
+    - type: Tweak
+      message: >-
+        оружейная, теперь все оружие хранится в сейфах, изменено соотношение
+        оружия
+    - type: Tweak
+      message: хранилище ВКД/EVA
+    - type: Tweak
+      message: >-
+        начальные аптечки у бригмедика на более разнообразные, Наномед у
+        бригмедика не требует доступов
+    - type: Fix
+      message: Побег слаймов из ксенобиологии
+    - type: Fix
+      message: >-
+        свет в коридорах инженерного отдела, комнате с лазером и реактором,
+        исправлены доступы к якорю
+    - type: Tweak
+      message: ТЭГ
+    - type: Tweak
+      message: Бар и Кухня
+    - type: Tweak
+      message: Цена за выбор языка в лобби
+    - type: Fix
+      message: Крылья гарпий
+    - type: Fix
+      message: Регенерация унатхов
+    - type: Fix
+      message: Фикс пилота (переводы + прототипы)
+    - type: Fix
+      message: Выбор языков
+  id: 123
+  time: '2026-09-16T12:42:00.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/53
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: '#Fix + Re-map'
