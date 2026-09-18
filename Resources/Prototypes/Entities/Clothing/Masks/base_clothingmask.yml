@@ -53,6 +53,17 @@
   - type: Tag # goob edit
     tags:
     - Mask
+  # Funky start
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      mask:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: maskblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: maskbloodicon
+  # Funky end
 
 - type: entity
   abstract: true
@@ -95,6 +106,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain: # Funky
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade

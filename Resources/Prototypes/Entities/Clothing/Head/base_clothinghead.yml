@@ -26,11 +26,27 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain: # Funky
+        maxVol: 5
+  - type: ContainerContainer # Funky
+    containers:
+      hidden_slot: !type:ContainerSlot
   - type: Tag
     tags:
     - ClothMade
     - WhitelistChameleon
     - DroneUsable # Goobstation
+  # Funky start
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      head:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: helmetblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: helmetbloodicon
+  # Funky end
 
 - type: entity
   abstract: true
@@ -157,6 +173,8 @@
     - FacialHair
   - type: SlotBlock # Erida edit
     blockList: [ MASK, EARS, EYES ]
+  - type: StainBlocker # Funky
+    slots: [MASK]
 
 - type: entity
   abstract: true
@@ -223,6 +241,19 @@
   - type: FaceHuggerBlocker # Goobstation
   - type: SlotBlock # Erida edit
     blockList: [ MASK, EARS, EYES ]
+  # Funky start
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      head:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: helmetblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: helmetbloodicon
+  - type: StainBlocker
+    slots: [MASK]
+  # Funky end
 
 - type: entity
   abstract: true
@@ -313,3 +344,14 @@
     - HeadSide
   - type: SlotBlock # Erida edit
     blockList: [ EARS ]
+  # Funky start
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      head:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: helmetblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: helmetbloodicon
+  # Funky end

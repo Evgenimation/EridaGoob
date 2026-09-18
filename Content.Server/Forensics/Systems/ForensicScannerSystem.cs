@@ -282,5 +282,12 @@ namespace Content.Server.Forensics
 
             UpdateUserInterface(uid, component);
         }
+
+        // Erida start
+        public ProtoId<TagPrototype> GetDNASolutionScannableTag()
+        {
+            return DNASolutionScannableTag;
+        }
+        // Erida end
     }
 }

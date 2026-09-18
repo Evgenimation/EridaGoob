@@ -129,6 +129,11 @@ public sealed class VomitSystem : EntitySystem
                 }
             }
 
+            // Erida start
+            var stainEv = new SpilledOnEvent(uid, solution.Clone());
+            RaiseLocalEvent(uid, stainEv);
+            // Erida end
+
             // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
             solution.AddReagent(new ReagentId(VomitPrototype, _bloodstream.GetEntityBloodData((uid, bloodStream))), vomitAmount);
         }

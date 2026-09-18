@@ -45,9 +45,29 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
+      stain: # Funky
+        maxVol: 5
+  # Funky start
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: _Gabystation/Effects/Stains/jumpsuit.rsi
+        state: inhand-right
+      right:
+      - sprite: _Gabystation/Effects/Stains/jumpsuit.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: uniformbloodicon
+  # Funky end
   - type: Tag
     tags:
-    - ClothMade
+    - ClothMade # Funky
     - Recyclable
     - WhitelistChameleon
     - Skirt # Goobstation
@@ -65,6 +85,24 @@
   - type: SlotBlock # Erida edit
     blockList: [ UNDERSHIRT ]
     hideList: [ UNDERPANTS, UNDERPOCKET ]
+  # Funky start
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: _Gabystation/Effects/Stains/jumpskirt.rsi
+        state: inhand-right
+      right:
+      - sprite: _Gabystation/Effects/Stains/jumppskirt.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: uniformbloodicon
+  # Funky end
+
 
 - type: entity
   abstract: true
@@ -116,3 +154,20 @@
     foldVerbText: fold-verb-clothing-jacket
   - type: FoldableClothing
     foldedEquippedPrefix: folded
+  # Funky start
+  - type: Stainable
+    clothingVisuals:
+      jumpsuit:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: uniformblood
+    itemVisuals:
+      left:
+      - sprite: _Gabystation/Effects/Stains/jumpskirt.rsi
+        state: inhand-right
+      right:
+      - sprite: _Gabystation/Effects/Stains/jumpskirt.rsi
+        state: inhand-left
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: uniformbloodicon
+  # Funky end
