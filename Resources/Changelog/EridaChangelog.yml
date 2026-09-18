@@ -1626,3 +1626,14 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/53
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: '#Fix + Re-map'
+- author: Lytheriia
+  changes:
+    - type: Add
+      message: Система загрязнения одежды
+    - type: Add
+      message: Стиральная машина в шкафу уборщика
+  id: 124
+  time: '2026-09-18T02:04:05.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/55
+  avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
+  title: '[Port] Washing & stainable systems'
