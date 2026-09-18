@@ -1,6 +1,7 @@
 using Content.Shared.Access;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Turrets;
 
@@ -16,4 +17,20 @@ public sealed partial class TurretTargetSettingsComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<AccessLevelPrototype>> ExemptAccessLevels = new();
+
+    [DataField, AutoNetworkedField] // Erida edit
+    public TurretTargetingMode Mode = TurretTargetingMode.AccessExempt;
 }
+
+// Erida start
+[Flags]
+public enum TurretTargetingMode : byte
+{
+    AccessExempt = 1 << 0,
+    IgnoreAccess = 1 << 1,
+    NoMindshield = 1 << 2,
+    Wanted = 1 << 3,
+    Detained = 1 << 4,
+    NotInManifest = 1 << 5,
+}
+// Erida end

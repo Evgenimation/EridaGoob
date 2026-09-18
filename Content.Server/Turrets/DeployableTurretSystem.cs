@@ -99,6 +99,17 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
             return;
         }
 
+        // Erida start
+        // Received a command to change targeting mode
+        if (command == DeployableTurretControllerSystem.CmdSetTargetingMode &&
+            args.Data.TryGetValue(command, out TurretTargetingMode targetingMode) &&
+            TryComp<TurretTargetSettingsComponent>(ent, out var turretTargetSettingsMode))
+        {
+            _turretTargetingSettings.SetTargetingMode((ent, turretTargetSettingsMode), targetingMode);
+            return;
+        }
+        // Erida end
+
         // Received a command to update the device network
         if (command == DeviceNetworkConstants.CmdUpdatedState)
         {
@@ -150,7 +161,7 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
         DirtyField(ent, ent.Comp, nameof(DeployableTurretComponent.Enabled));
 
         // Determine how much time is remaining in the current animation and the one next in queue
-        var animTimeRemaining = MathF.Max((float)(ent.Comp.AnimationCompletionTime - _timing.CurTime).TotalSeconds, 0f);
+        var animTimeRemaining = MathF.Max((float) (ent.Comp.AnimationCompletionTime - _timing.CurTime).TotalSeconds, 0f);
         var animTimeNext = ent.Comp.Enabled ? ent.Comp.DeploymentLength : ent.Comp.RetractionLength;
 
         // End/restart any tasks the NPC was doing

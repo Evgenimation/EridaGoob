@@ -105,7 +105,24 @@
                                 </PanelContainer.PanelOverride>
                             </PanelContainer>
 
-                            <!-- Access configuration -->
+                            <!-- erida edit start -->
+                            <Label Text="{Loc 'turret-controls-window-targeting-mode-label'}" StyleClasses="ConsoleSubHeading"
+                                   HorizontalAlignment="Center" Margin="0 5 0 0" />
+
+                            <PanelContainer Margin="10 2 10 4">
+                                <PanelContainer.PanelOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#00000055" BorderColor="#FFFFFF" BorderThickness="1"
+                                                      ContentMarginLeftOverride="8" ContentMarginRightOverride="8"
+                                                      ContentMarginTopOverride="6" ContentMarginBottomOverride="6" />
+                                </PanelContainer.PanelOverride>
+                                <BoxContainer Name="TargetingModeContainer" Orientation="Vertical">
+                                </BoxContainer>
+                            </PanelContainer>
+
+                            <Label Text="{Loc 'turret-controls-window-access-label'}" StyleClasses="ConsoleSubHeading"
+                                   HorizontalAlignment="Center" Margin="0 5 0 0" />
+                            <!-- erida edit end -->
+
                             <access:GroupedAccessLevelChecklist Name="AccessConfiguration"/>
 
                         </BoxContainer>

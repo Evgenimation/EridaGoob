@@ -19,7 +19,7 @@
   - !type:AddComponentSpecial
     components:
     - type: MimePowers
-      preventWriting: true
+      preventWriting: false # erida edit
     - type: FrenchAccent
 
 - type: startingGear

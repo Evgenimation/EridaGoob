@@ -27,6 +27,7 @@ public abstract partial class SharedDeployableTurretControllerSystem : EntitySys
         // Handling of client messages
         SubscribeLocalEvent<DeployableTurretControllerComponent, DeployableTurretArmamentSettingChangedMessage>(OnArmamentSettingChanged);
         SubscribeLocalEvent<DeployableTurretControllerComponent, DeployableTurretExemptAccessLevelChangedMessage>(OnExemptAccessLevelsChanged);
+        SubscribeLocalEvent<DeployableTurretControllerComponent, DeployableTurretTargetingModeChangedMessage>(OnTargetingModeChanged); // Erida edit
     }
 
     private void OnArmamentSettingChanged(Entity<DeployableTurretControllerComponent> ent, ref DeployableTurretArmamentSettingChangedMessage args)
@@ -46,6 +47,23 @@ public abstract partial class SharedDeployableTurretControllerSystem : EntitySys
         if (_userInterfaceSystem.TryGetOpenUi(ent.Owner, DeployableTurretControllerUiKey.Key, out var bui))
             bui.Update<DeployableTurretControllerBoundInterfaceState>();
     }
+
+    // Erida start
+    private void OnTargetingModeChanged(Entity<DeployableTurretControllerComponent> ent, ref DeployableTurretTargetingModeChangedMessage args)
+    {
+        if (IsUserAllowedAccess(ent, args.Actor))
+            ChangeTargetingMode(ent, args.Mode, args.Actor);
+
+        if (_userInterfaceSystem.TryGetOpenUi(ent.Owner, DeployableTurretControllerUiKey.Key, out var bui))
+            bui.Update<DeployableTurretControllerBoundInterfaceState>();
+    }
+
+    protected virtual void ChangeTargetingMode(Entity<DeployableTurretControllerComponent> ent, TurretTargetingMode mode, EntityUid? user = null)
+    {
+        ent.Comp.TargetingMode = mode;
+        Dirty(ent);
+    }
+    // Erida end
 
     protected virtual void ChangeArmamentSetting(Entity<DeployableTurretControllerComponent> ent, int armamentState, EntityUid? user = null)
     {

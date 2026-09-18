@@ -25,6 +25,15 @@ turret-controls-window-target = Target
 turret-controls-window-access-group-label = {$prefix} {$label}
 turret-controls-window-all-checkbox = All
 
+# Targeting mode - erida edit
+turret-controls-window-targeting-mode-label = Targeting mode
+turret-controls-window-access-label = Authorized access
+turret-controls-window-targeting-mode-ignore-access = Ignore access
+turret-controls-window-targeting-mode-no-mindshield = Fire on non-mindshielded
+turret-controls-window-targeting-mode-wanted = Fire on wanted
+turret-controls-window-targeting-mode-detained = Fire on detained
+turret-controls-window-targeting-mode-not-in-manifest = Ignore access for non-crewmembers
+
 # Flavor
 turret-controls-window-footer = Unauthorized personnel should ensure defenses are inactive before proceeding
 

@@ -58,7 +58,7 @@
     - FreedomImplanter
     - DeathAcidifierImplanter
   - type: MimePowers
-    preventWriting: true
+    preventWriting: false # erida edit
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout

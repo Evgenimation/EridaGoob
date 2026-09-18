@@ -6,6 +6,7 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
+using Content.Server._Goobstation.GameTicking.Rules.Components; // erida edit
 using Content.Shared.Administration;
 using Content.Server.Clothing.Systems;
 using Content.Shared.Database;
@@ -37,6 +38,11 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
+    // Erida start
+    private static readonly EntProtoId DefaultSingulothKnightRule = "SingulothKnightsMidround";
+    private static readonly EntProtoId DefaultDarkLordRule = "DarkLordMidround";
+    private static readonly EntProtoId DefaultChosenOneRule = "ChosenOneMidround";
+    // Erida end
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
@@ -65,7 +71,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
             },
             Impact = LogImpact.High,
-            Message = string.Join(": ", traitorName,  Loc.GetString("admin-verb-make-traitor")),
+            Message = string.Join(": ", traitorName, Loc.GetString("admin-verb-make-traitor")),
         };
         args.Verbs.Add(traitor);
 
@@ -264,5 +270,55 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(cosmiccult);
         // End DeltaV Additions
+
+        // Erida start
+        var singulothKnightName = Loc.GetString("admin-verb-text-make-singuloth-knight");
+        Verb singulothKnight = new()
+        {
+            Text = singulothKnightName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "SingulothKnight"),
+            Act = () =>
+            {
+                _outfit.SetOutfit(args.Target, "SingulothKnightsAntagGear");
+                _antag.ForceMakeAntag<SingulothKnightRuleComponent>(targetPlayer, DefaultSingulothKnightRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", singulothKnightName, Loc.GetString("admin-verb-make-singuloth-knight")),
+        };
+        args.Verbs.Add(singulothKnight);
+
+        var darkLordName = Loc.GetString("admin-verb-text-make-dark-lord");
+        Verb darkLord = new()
+        {
+            Text = darkLordName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "DarkLord"),
+            Act = () =>
+            {
+                _outfit.SetOutfit(args.Target, "DarkLordAntagGear");
+                _antag.ForceMakeAntag<DarkLordRuleComponent>(targetPlayer, DefaultDarkLordRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", darkLordName, Loc.GetString("admin-verb-make-dark-lord")),
+        };
+        args.Verbs.Add(darkLord);
+
+        var chosenOneName = Loc.GetString("admin-verb-text-make-chosen-one");
+        Verb chosenOne = new()
+        {
+            Text = chosenOneName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "ChosenOne"),
+            Act = () =>
+            {
+                _outfit.SetOutfit(args.Target, "ChosenOneProtagGear");
+                _antag.ForceMakeAntag<ChosenOneRuleComponent>(targetPlayer, DefaultChosenOneRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", chosenOneName, Loc.GetString("admin-verb-make-chosen-one")),
+        };
+        args.Verbs.Add(chosenOne);
+        // Erida end
     }
 }
