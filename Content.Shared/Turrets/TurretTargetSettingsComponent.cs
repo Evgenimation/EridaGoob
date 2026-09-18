@@ -18,12 +18,11 @@ public sealed partial class TurretTargetSettingsComponent : Component
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<AccessLevelPrototype>> ExemptAccessLevels = new();
 
-    // erida edit start
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField] // Erida edit
     public TurretTargetingMode Mode = TurretTargetingMode.AccessExempt;
-    // erida edit end
 }
 
+// Erida start
 [Flags]
 public enum TurretTargetingMode : byte
 {
@@ -34,3 +33,4 @@ public enum TurretTargetingMode : byte
     Detained = 1 << 4,
     NotInManifest = 1 << 5,
 }
+// Erida end

@@ -21,7 +21,7 @@ public sealed class TurretControllerWindowBoundUserInterface(EntityUid owner, En
 
         _window.OnAccessLevelsChangedEvent += OnAccessLevelChanged;
         _window.OnArmamentSettingChangedEvent += OnArmamentSettingChanged;
-        _window.OnTargetingModeChangedEvent += OnTargetingModeChanged;
+        _window.OnTargetingModeChangedEvent += OnTargetingModeChanged; // Erida edit
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -41,11 +41,13 @@ public sealed class TurretControllerWindowBoundUserInterface(EntityUid owner, En
 
     private void OnArmamentSettingChanged(TurretControllerWindow.TurretArmamentSetting setting)
     {
-        SendPredictedMessage(new DeployableTurretArmamentSettingChangedMessage((int)setting));
+        SendPredictedMessage(new DeployableTurretArmamentSettingChangedMessage((int) setting));
     }
 
+    // Erida start
     private void OnTargetingModeChanged(TurretTargetingMode mode)
     {
         SendPredictedMessage(new DeployableTurretTargetingModeChangedMessage(mode));
     }
+    // Erida end
 }

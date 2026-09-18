@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Client._Reserve.VendingMachines; // erida edit
+using Content.Client._Reserve.VendingMachines
 using Content.Shared.VendingMachines;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -131,13 +131,13 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
                 if (component.LoopDenyAnimation)
                     SetLayerState(VendingMachineVisualLayers.BaseUnshaded, component.DenyState, (uid, sprite));
                 else
-                    PlayAnimation(uid, VendingMachineVisualLayers.BaseUnshaded, component.DenyState, (float)component.DenyDelay.TotalSeconds, sprite);
+                    PlayAnimation(uid, VendingMachineVisualLayers.BaseUnshaded, component.DenyState, (float) component.DenyDelay.TotalSeconds, sprite);
 
                 SetLayerState(VendingMachineVisualLayers.Screen, component.ScreenState, (uid, sprite));
                 break;
 
             case VendingMachineVisualState.Eject:
-                PlayAnimation(uid, VendingMachineVisualLayers.BaseUnshaded, component.EjectState, (float)component.EjectDelay.TotalSeconds, sprite);
+                PlayAnimation(uid, VendingMachineVisualLayers.BaseUnshaded, component.EjectState, (float) component.EjectDelay.TotalSeconds, sprite);
                 SetLayerState(VendingMachineVisualLayers.Screen, component.ScreenState, (uid, sprite));
                 break;
 

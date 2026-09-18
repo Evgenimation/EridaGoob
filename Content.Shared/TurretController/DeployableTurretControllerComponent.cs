@@ -47,10 +47,8 @@ public sealed partial class DeployableTurretControllerComponent : Component
     [DataField]
     public HashSet<ProtoId<AccessGroupPrototype>> AccessGroups = new();
 
-    // erida edit start
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField] // Erida edit
     public TurretTargetingMode TargetingMode = TurretTargetingMode.AccessExempt;
-    // erida edit end
 
     /// <summary>
     /// Sound to play when denying access to the device.
@@ -94,7 +92,7 @@ public sealed class DeployableTurretExemptAccessLevelChangedMessage : BoundUserI
     }
 }
 
-// erida edit start
+// Erida start
 [Serializable, NetSerializable]
 public sealed class DeployableTurretTargetingModeChangedMessage : BoundUserInterfaceMessage
 {
@@ -105,7 +103,7 @@ public sealed class DeployableTurretTargetingModeChangedMessage : BoundUserInter
         Mode = mode;
     }
 }
-// erida edit end
+// Erida end
 
 [Serializable, NetSerializable]
 public enum TurretControllerVisuals : byte

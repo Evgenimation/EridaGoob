@@ -24,7 +24,7 @@ public sealed partial class DeployableTurretControllerSystem : SharedDeployableT
     /// Keys for the device network. See <see cref="DeviceNetworkConstants"/> for further examples.
     public const string CmdSetArmamemtState = "set_armament_state";
     public const string CmdSetAccessExemptions = "set_access_exemption";
-    public const string CmdSetTargetingMode = "set_targeting_mode"; // erida edit
+    public const string CmdSetTargetingMode = "set_targeting_mode"; // Erida edit
 
     public override void Initialize()
     {
@@ -146,7 +146,7 @@ public sealed partial class DeployableTurretControllerSystem : SharedDeployableT
         _deviceNetwork.QueuePacket(ent, null, payload, device: device);
     }
 
-    // erida edit start
+    // Erida start
     protected override void ChangeTargetingMode(Entity<DeployableTurretControllerComponent> ent, TurretTargetingMode mode, EntityUid? user = null)
     {
         base.ChangeTargetingMode(ent, mode, user);
@@ -164,7 +164,7 @@ public sealed partial class DeployableTurretControllerSystem : SharedDeployableT
 
         _deviceNetwork.QueuePacket(ent, null, payload, device: device);
     }
-    // erida edit end
+    // Erida end
 
     private void UpdateUIState(Entity<DeployableTurretControllerComponent> ent)
     {
