@@ -99,6 +99,17 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
             return;
         }
 
+        // erida edit start
+        // Received a command to change targeting mode
+        if (command == DeployableTurretControllerSystem.CmdSetTargetingMode &&
+            args.Data.TryGetValue(command, out TurretTargetingMode targetingMode) &&
+            TryComp<TurretTargetSettingsComponent>(ent, out var turretTargetSettingsMode))
+        {
+            _turretTargetingSettings.SetTargetingMode((ent, turretTargetSettingsMode), targetingMode);
+            return;
+        }
+        // erida edit end
+
         // Received a command to update the device network
         if (command == DeviceNetworkConstants.CmdUpdatedState)
         {

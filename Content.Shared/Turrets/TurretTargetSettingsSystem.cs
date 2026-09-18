@@ -1,6 +1,12 @@
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
+using Content.Shared.CriminalRecords;
+using Content.Shared.Humanoid;
 using Content.Shared.Item.ItemToggle;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Security;
+using Content.Shared.SSDIndicator;
+using Content.Shared.StationRecords;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -15,6 +21,10 @@ public sealed partial class TurretTargetSettingsSystem : EntitySystem
 {
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!; // goob edit dont target disabled borgs
+    // erida edit start
+    [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly SharedStationRecordsSystem _records = default!;
+    // erida edit end
     
     private ProtoId<AccessLevelPrototype> _accessLevelBorg = "Borg";
     private ProtoId<AccessLevelPrototype> _accessLevelBasicSilicon = "BasicSilicon";
@@ -110,19 +120,20 @@ public sealed partial class TurretTargetSettingsSystem : EntitySystem
         return false;
     }
 
-    /// <summary>
-    /// Returns whether an entity is a valid target for a turret.
-    /// </summary>
-    /// <remarks>
-    /// Returns false if the target possesses one or more access tags that are present on the entity's <see cref="TurretTargetSettingsComponent.ExemptAccessLevels"/> list.
-    /// </remarks>
-    /// <param name="ent">The entity and its <see cref="TurretTargetSettingsComponent"/></param>
-    /// <param name="target">The target entity</param>
+    // erida edit start
+    [PublicAPI]
+    public void SetTargetingMode(Entity<TurretTargetSettingsComponent> ent, TurretTargetingMode mode)
+    {
+        ent.Comp.Mode = mode;
+        Dirty(ent);
+    }
+
     [PublicAPI]
     public bool EntityIsTargetForTurret(Entity<TurretTargetSettingsComponent> ent, EntityUid target)
     {
         var accessLevels = _accessReader.FindAccessTags(target);
 
+        // Borgs and silicons are only targeted if not exempt.
         if (accessLevels.Contains(_accessLevelBorg))
             return !HasAccessLevelExemption(ent, _accessLevelBorg);
 
@@ -131,7 +142,72 @@ public sealed partial class TurretTargetSettingsSystem : EntitySystem
 
         if (!_toggle.IsActivated(target)) // goob edit dont target disabled borgs
             return !HasAccessLevelExemption(ent, _accessLevelBorg); // goob edit dont target disabled borgs
-  
+
+        if (ent.Comp.Mode.HasFlag(TurretTargetingMode.IgnoreAccess))
+            return true;
+
+        var isHumanoid = HasComp<HumanoidAppearanceComponent>(target);
+
+        // Only apply status/identity-based targeting modes to humanoids (all playable races, not animals).
+        if (isHumanoid)
+        {
+            // SSD entities are always targeted.
+            if (TryComp<SSDIndicatorComponent>(target, out var ssd) && ssd.IsSSD)
+                return true;
+
+            if (ent.Comp.Mode.HasFlag(TurretTargetingMode.NoMindshield) &&
+                !HasComp<MindShieldComponent>(target) &&
+                !HasComp<FakeMindShieldComponent>(target))
+            {
+                return true;
+            }
+
+            if (ent.Comp.Mode.HasFlag(TurretTargetingMode.Wanted) || ent.Comp.Mode.HasFlag(TurretTargetingMode.Detained))
+            {
+                var status = GetTargetSecurityStatus(target);
+                if (status != null)
+                {
+                    if (ent.Comp.Mode.HasFlag(TurretTargetingMode.Wanted) && status.Value == SecurityStatus.Wanted)
+                        return true;
+                    if (ent.Comp.Mode.HasFlag(TurretTargetingMode.Detained) && status.Value == SecurityStatus.Detained)
+                        return true;
+                }
+            }
+
+            if (ent.Comp.Mode.HasFlag(TurretTargetingMode.NotInManifest) && !HasCrewRecord(target))
+                return true;
+        }
+
+        // Animals and other non-humanoids are never valid targets unless IgnoreAccess is set.
+        if (!isHumanoid)
+            return false;
+
         return !HasAnyAccessLevelExemption(ent, accessLevels);
     }
+
+    private SecurityStatus? GetTargetSecurityStatus(EntityUid target)
+    {
+        if (!_idCard.TryFindIdCard(target, out var idCard))
+            return null;
+
+        if (!TryComp<StationRecordKeyStorageComponent>(idCard, out var keyStorage) || keyStorage.Key == null)
+            return null;
+
+        if (!_records.TryGetRecord<CriminalRecord>(keyStorage.Key.Value, out var criminalRecord))
+            return null;
+
+        return criminalRecord.Status;
+    }
+
+    private bool HasCrewRecord(EntityUid target)
+    {
+        if (!_idCard.TryFindIdCard(target, out var idCard))
+            return false;
+
+        if (!TryComp<StationRecordKeyStorageComponent>(idCard, out var keyStorage) || keyStorage.Key == null)
+            return false;
+
+        return _records.TryGetRecord<GeneralStationRecord>(keyStorage.Key.Value, out _);
+    }
+    // erida edit end
 }

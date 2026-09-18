@@ -22,6 +22,14 @@ turret-controls-window-ignore = Игнорировать
 turret-controls-window-target = Цель
 turret-controls-window-access-group-label = { $prefix } { $label }
 turret-controls-window-all-checkbox = Все
+# Targeting mode
+turret-controls-window-targeting-mode-label = Режим наведения
+turret-controls-window-access-label = Авторизованный доступ
+turret-controls-window-targeting-mode-ignore-access = Игнорировать доступ
+turret-controls-window-targeting-mode-no-mindshield = Стрелять по тем кто не имеет МЩ
+turret-controls-window-targeting-mode-wanted = Стрелять по разыскиваемым
+turret-controls-window-targeting-mode-detained = Стрелять по задержанным
+turret-controls-window-targeting-mode-not-in-manifest = Игнорировать доступ для не членов экипажа
 # Flavor
 turret-controls-window-footer = Неавторизованный персонал должен убедиться в неактивности защиты перед продолжением
 # Warnings

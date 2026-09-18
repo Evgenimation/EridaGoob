@@ -1,5 +1,6 @@
 using Content.Shared.Access;
 using Content.Shared.TurretController;
+using Content.Shared.Turrets;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
@@ -20,6 +21,7 @@ public sealed class TurretControllerWindowBoundUserInterface(EntityUid owner, En
 
         _window.OnAccessLevelsChangedEvent += OnAccessLevelChanged;
         _window.OnArmamentSettingChangedEvent += OnArmamentSettingChanged;
+        _window.OnTargetingModeChangedEvent += OnTargetingModeChanged;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -40,5 +42,10 @@ public sealed class TurretControllerWindowBoundUserInterface(EntityUid owner, En
     private void OnArmamentSettingChanged(TurretControllerWindow.TurretArmamentSetting setting)
     {
         SendPredictedMessage(new DeployableTurretArmamentSettingChangedMessage((int)setting));
+    }
+
+    private void OnTargetingModeChanged(TurretTargetingMode mode)
+    {
+        SendPredictedMessage(new DeployableTurretTargetingModeChangedMessage(mode));
     }
 }

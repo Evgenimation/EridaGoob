@@ -32,6 +32,12 @@ public sealed partial class TurretControllerWindow : BaseWindow
     // Events
     public event Action<HashSet<ProtoId<AccessLevelPrototype>>, bool>? OnAccessLevelsChangedEvent;
     public event Action<TurretArmamentSetting>? OnArmamentSettingChangedEvent;
+    // erida edit start
+    public event Action<TurretTargetingMode>? OnTargetingModeChangedEvent;
+
+    // Targeting mode checkboxes
+    private readonly Dictionary<TurretTargetingMode, CheckBox> _targetingModeBoxes = new();
+    // erida edit end
 
     // Colors
     private static readonly Dictionary<TurretArmamentSetting, Color> ThemeColors = new()
@@ -93,11 +99,13 @@ public sealed partial class TurretControllerWindow : BaseWindow
             AccessConfiguration.SetAccessGroups(turretController.AccessGroups);
             AccessConfiguration.SetAccessLevels(turretController.AccessLevels);
             UpdateTheme((TurretArmamentSetting)turretController.ArmamentState);
+            RefreshTargetingMode(turretController.TargetingMode); // erida edit
         }
 
         if (_entManager.TryGetComponent<TurretTargetSettingsComponent>(_owner, out var turretTargetSettings))
         {
             RefreshAccessControls(turretTargetSettings.ExemptAccessLevels);
+            RefreshTargetingMode(turretTargetSettings.Mode); // erida edit
         }
     }
 
@@ -131,7 +139,10 @@ public sealed partial class TurretControllerWindow : BaseWindow
     public void UpdateState(DeployableTurretControllerBoundInterfaceState state)
     {
         if (_entManager.TryGetComponent<DeployableTurretControllerComponent>(_owner, out var turretController))
+        {
             UpdateTheme((TurretArmamentSetting)turretController.ArmamentState);
+            RefreshTargetingMode(turretController.TargetingMode); // erida edit
+        }
 
         if (_entManager.TryGetComponent<TurretTargetSettingsComponent>(_owner, out var turretTargetSettings))
             RefreshAccessControls(turretTargetSettings.ExemptAccessLevels);
@@ -179,6 +190,63 @@ public sealed partial class TurretControllerWindow : BaseWindow
         AccessConfiguration.SetActiveAccessLevels(exemptAccessLevels);
         AccessConfiguration.SetLocalPlayerAccessibility(IsLocalPlayerAllowedToInteract());
     }
+
+    // erida edit start
+    private void RefreshTargetingMode(TurretTargetingMode mode)
+    {
+        if (TargetingModeContainer.ChildCount == 0)
+            BuildTargetingModeCheckboxes();
+
+        foreach (var (modeFlag, box) in _targetingModeBoxes)
+            box.Pressed = mode.HasFlag(modeFlag);
+    }
+
+    private void BuildTargetingModeCheckboxes()
+    {
+        var modes = new (TurretTargetingMode Flag, string LocKey)[]
+        {
+            (TurretTargetingMode.IgnoreAccess, "turret-controls-window-targeting-mode-ignore-access"),
+            (TurretTargetingMode.NoMindshield, "turret-controls-window-targeting-mode-no-mindshield"),
+            (TurretTargetingMode.Wanted, "turret-controls-window-targeting-mode-wanted"),
+            (TurretTargetingMode.Detained, "turret-controls-window-targeting-mode-detained"),
+            (TurretTargetingMode.NotInManifest, "turret-controls-window-targeting-mode-not-in-manifest"),
+        };
+
+        foreach (var (flag, locKey) in modes)
+        {
+            var box = new CheckBox
+            {
+                Text = Loc.GetString(locKey),
+                HorizontalExpand = true,
+                Margin = new Thickness(2, 1),
+            };
+            box.Label.AddStyleClass("ConsoleText");
+
+            var capturedFlag = flag;
+            box.OnToggled += args =>
+            {
+                var mode = GetCurrentTargetingMode();
+                mode = args.Pressed ? mode | capturedFlag : mode & ~capturedFlag;
+                OnTargetingModeChangedEvent?.Invoke(mode);
+            };
+
+            _targetingModeBoxes[flag] = box;
+            TargetingModeContainer.AddChild(box);
+        }
+    }
+
+    private TurretTargetingMode GetCurrentTargetingMode()
+    {
+        var mode = TurretTargetingMode.AccessExempt;
+        foreach (var (flag, box) in _targetingModeBoxes)
+        {
+            if (box.Pressed)
+                mode |= flag;
+        }
+
+        return mode;
+    }
+    // erida edit end
 
     protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
     {
