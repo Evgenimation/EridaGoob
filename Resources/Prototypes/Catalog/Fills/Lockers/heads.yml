@@ -18,6 +18,7 @@
     - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
     - id: CargoMegaphone # goob - loudspeaker
     - id: SlotMachineHighRollerFlatPack # Goob - gambling
+    - id: CargoComputerCommsFlatpack # erida edit
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -141,6 +142,7 @@
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: CommandMegaphone # goob - loudspeakers
+    - id: ServiceComputerCommsFlatpack # erida edit
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -182,6 +184,7 @@
     - id: WeaponLauncherSingularityBuster
     - id: MachinePowerTransmissionLaserFlatpack
     - id: RCDRechargingCE
+    - id: EngiComputerCommsFlatpack # erida edit
     - id: MaterialSiloFlatpack # Goob
 
 # Hardsuit table, used for suit storage as well
@@ -258,6 +261,7 @@
     # Virology
     - id: DiseaseDiagnoserFlatPack
     - id: VaccinatorFlatPack
+    - id: MedicalComputerCommsFlatpack # erida edit
     # Goobstation End
 
 # Hardsuit table, used for suit storage as well
@@ -318,6 +322,7 @@
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: MMI # Goobstation
+    - id: ScienceComputerCommsFlatpack # erida edit
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -382,6 +387,7 @@
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
     - id: MaterialSiloFlatpack # Goob
+    - id: SecurityComputerCommsFlatpack # erida edit
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
