@@ -183,6 +183,7 @@
     - SingulothKnightPreachObjective
     - SingulothKnightSingularityObjective
     - SingulothKnightTeslaObjective
+  - type: SingulothKnightRule # erida edit
 
 - type: entity
   parent: BaseGameRule
@@ -222,6 +223,7 @@
     - HijackShuttleObjective
     - KillRandomHeadObjective
     - DarkLordDuelObjective
+  - type: DarkLordRule # erida edit
 
 - type: entity # Only has a chance to spawn whenever dark lord spawns
   parent: BaseGameRule
@@ -248,6 +250,7 @@
   - type: AntagObjectives
     objectives:
     - ChosenOneKillDarkLordObjective
+  - type: ChosenOneRule # erida edit
 
 - type: entity
   parent: BaseGameRule

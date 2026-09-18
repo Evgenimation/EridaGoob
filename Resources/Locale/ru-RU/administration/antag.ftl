@@ -20,3 +20,10 @@ admin-overlay-antag-classic = АНТАГ
 admin-verb-make-space-ninja = Сделать цель космическим ниндзя.
 
 admin-verb-text-make-space-ninja = Сделать ниндзя
+
+admin-verb-make-singuloth-knight = Сделать цель рыцарем Сингулота.
+admin-verb-make-dark-lord = Сделать цель тёмным лордом.
+admin-verb-make-chosen-one = Сделать цель избранным.
+admin-verb-text-make-singuloth-knight = Сделать рыцарем Сингулота
+admin-verb-text-make-dark-lord = Сделать тёмным лордом
+admin-verb-text-make-chosen-one = Сделать избранным
