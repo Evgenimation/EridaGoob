@@ -5,7 +5,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Content.Shared.Chat;
+using Content.Shared.Coordinates;
+using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.EntityTable;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
@@ -23,11 +26,11 @@ namespace Content.Goobstation.Shared.SlotMachine
         [Dependency] private readonly INetManager _net = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedChatSystem _chatSystem = default!;
         [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
         [Dependency] private readonly SharedStackSystem _stackSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
+        [Dependency] private readonly PrizeSystem _prize = default!;
 
         public override void Initialize()
         {
@@ -35,176 +38,109 @@ namespace Content.Goobstation.Shared.SlotMachine
 
             SubscribeLocalEvent<SlotMachineComponent, ActivateInWorldEvent>(OnInteractHandEvent);
             SubscribeLocalEvent<SlotMachineComponent, SlotMachineDoAfterEvent>(OnSlotMachineDoAfter);
+            SubscribeLocalEvent<SlotMachineComponent, SlotMachineEmagDoAfterEvent>(OnSlotMachineEmagDoAfter);
             SubscribeLocalEvent<SlotMachineComponent, GotEmaggedEvent>(OnEmagged);
         }
 
         /// <summary>
-        /// For whenever it gets emagged
+        /// Spawns a random entity when emmaged
         /// </summary>
-        private void OnEmagged(EntityUid uid, SlotMachineComponent comp, ref GotEmaggedEvent args)
+        private void OnEmagged(Entity<SlotMachineComponent> ent, ref GotEmaggedEvent args)
         {
-            if (comp.Emagged)
+            if (HasComp<EmaggedComponent>(ent.Owner))
                 return;
 
             args.Handled = true;
-            comp.Emagged = true;
+            EnsureComp<EmaggedComponent>(ent);
 
-            comp.SpinCost = _random.Next(50, 100000);
-            comp.SmallPrizeAmount = _random.Next(-500, 5000);
-            comp.MediumPrizeAmount = _random.Next(-500, 10000);
-            comp.BigPrizeAmount = _random.Next(-500, 50000);
-            comp.JackPotPrizeAmount = _random.Next(-500, 100000);
+            var entities = _proto.EnumeratePrototypes<EntityPrototype>().ToList();
+            ent.Comp.EmagSpawnEntity = _random.Pick(entities).ID;
 
-            comp.SmallWinChance = _random.NextFloat(0, 0.6f);
-            comp.MediumWinChance = _random.NextFloat(0, 0.35f);
-            comp.BigWinChance = _random.NextFloat(0f, 0.2f);
-            comp.JackPotWinChance = _random.NextFloat(0, 0.1f);
-            comp.GodPotWinChance = _random.NextFloat(0, 0.05f);
+            var doAfter =
+                new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DoAfterTime, new SlotMachineEmagDoAfterEvent(), ent.Owner)
+                {
+                    BreakOnMove = false,
+                    BreakOnDamage = false,
+                    MultiplyDelay = false,
+                };
 
-            // lord have mercy...
-            var allProtos = _proto.EnumeratePrototypes<EntityPrototype>().ToList();
+            ent.Comp.IsSpinning = true;
 
-            if (allProtos.Count > 0)
+            if (_net.IsServer)
             {
-                var randomProto = _random.Pick(allProtos);
-                comp.GodPotPrize = randomProto.ID;
+                _audio.PlayPvs(ent.Comp.SpinSound, ent.Owner);
+                _doAfter.TryStartDoAfter(doAfter);
+                _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, true);
             }
+        }
+
+        private void OnSlotMachineEmagDoAfter(Entity<SlotMachineComponent> ent, ref SlotMachineEmagDoAfterEvent args)
+        {
+            if (ent.Comp.EmagSpawnEntity is not null)
+            {
+                _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
+                PredictedSpawnAtPosition(ent.Comp.EmagSpawnEntity, ent.Owner.ToCoordinates());
+            }
+
+            ent.Comp.IsSpinning = false;
+            Dirty(ent);
         }
 
         /// <summary>
         /// Handle the logic for starting the slot machine
         /// </summary>
-
-        private void OnInteractHandEvent(EntityUid uid, SlotMachineComponent comp, ActivateInWorldEvent args)
+        private void OnInteractHandEvent(Entity<SlotMachineComponent> ent, ref ActivateInWorldEvent args)
         {
-            if (comp.IsSpinning || !_power.IsPowered(uid))
+            if (ent.Comp.IsSpinning || !_power.IsPowered(ent.Owner))
                 return;
 
-            if (!_itemSlots.TryGetSlot(uid, "money", out var slot)
-                || slot.Item == null
-                || !TryComp<StackComponent>(slot.Item.Value, out var stack)
-                || !comp.NotStaticSpinCost && stack.Count < comp.SpinCost) // Erida edit
+            if (!_itemSlots.TryGetSlot(ent.Owner, "money", out var slot)
+                || slot.Item is not { } item
+                || _stackSystem.GetCount(item) < ent.Comp.SpinCost)
             {
-                _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), uid, uid, PopupType.Small); // No Money
+                _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), ent.Owner, args.User); // No Money
                 return;
             }
 
-            // Erida start
-            var spinCost = comp.NotStaticSpinCost ? stack.Count : comp.SpinCost;
-            comp.PrizeMultiplier = comp.NotStaticSpinCost ? stack.Count / comp.SpinCost : 1;
-            // Erida end
-
             var doAfter =
-             new DoAfterArgs(EntityManager, uid, comp.DoAfterTime, new SlotMachineDoAfterEvent(), uid)
+             new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.DoAfterTime, new SlotMachineDoAfterEvent(), ent.Owner)
              {
                  BreakOnMove = false,
                  BreakOnDamage = false,
                  MultiplyDelay = false,
              };
 
-            _stackSystem.SetCount(stack.Owner, stack.Count - spinCost, stack); // Erida edit
-            Dirty(stack.Owner, stack);
-            comp.IsSpinning = true;
+            if (TryComp<StackComponent>(item, out var stack))
+                _stackSystem.SetCount((item, stack), _stackSystem.GetCount(item) - ent.Comp.SpinCost);
 
-            if (_net.IsServer)
+            ent.Comp.IsSpinning = true;
+
+            if (_net.IsServer) // The DoAfter causes a weird jitter if its predicted for some reason
             {
-                _audio.PlayPvs(comp.SpinSound, uid);
+                _audio.PlayPvs(ent.Comp.SpinSound, ent.Owner);
                 _doAfter.TryStartDoAfter(doAfter);
-            }
-            if (TryComp<AppearanceComponent>(uid, out var appearance) && _net.IsServer)
-            {
-                _appearance.SetData(uid, SlotMachineVisuals.Spinning, true);
+                _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, true);
             }
         }
 
-        private void OnSlotMachineDoAfter(EntityUid uid, SlotMachineComponent comp, SlotMachineDoAfterEvent args)
+        private void OnSlotMachineDoAfter(Entity<SlotMachineComponent> ent, ref SlotMachineDoAfterEvent args)
         {
+            if (args.Handled)
+                return;
+
             if (args.Cancelled) // Almost no way for it to be canceled but just in case
             {
-                comp.IsSpinning = false;
-                Dirty(uid, comp);
+                ent.Comp.IsSpinning = false;
+                Dirty(ent);
                 return;
             }
 
-            if (args.Handled || !_itemSlots.TryGetSlot(uid, "money", out var slot))
-                return;
+            ent.Comp.IsSpinning = false;
+            Dirty(ent);
 
-            comp.IsSpinning = false;
-            Dirty(uid, comp);
+            _appearance.SetData(ent.Owner, SlotMachineVisuals.Spinning, false);
 
-            if (TryComp<AppearanceComponent>(uid, out var appearance) && _net.IsServer)
-            {
-                _appearance.SetData(uid, SlotMachineVisuals.Spinning, false);
-            }
-
-            // Handle the chances
-            StackComponent? stack = null;
-            if (slot.Item != null)
-                TryComp<StackComponent>(slot.Item.Value, out stack);
-
-            if (_random.Prob(comp.SmallWinChance)) // Erida add PrizeMultiply
-            {
-                _audio.PlayPredicted(comp.SmallWinSound, uid, args.User);
-                HandlePrize(uid, Loc.GetString("slotmachine-win-normal", ("amount", PrizeMultiply(comp.SmallPrizeAmount, comp.PrizeMultiplier))), stack, comp.SmallPrizeAmount);
-                return;
-            }
-            if (_random.Prob(comp.MediumWinChance)) // Erida add PrizeMultiply
-            {
-                _audio.PlayPredicted(comp.MediumWinSound, uid, args.User);
-                HandlePrize(uid, Loc.GetString("slotmachine-win-normal", ("amount", PrizeMultiply(comp.MediumPrizeAmount, comp.PrizeMultiplier))), stack, comp.MediumPrizeAmount);
-                return;
-            }
-            if (_random.Prob(comp.BigWinChance)) // Erida add PrizeMultiply
-            {
-                _audio.PlayPredicted(comp.BigWinSound, uid, args.User);
-                HandlePrize(uid, Loc.GetString("slotmachine-win-normal", ("amount", PrizeMultiply(comp.BigPrizeAmount, comp.PrizeMultiplier))), stack, comp.BigPrizeAmount);
-                return;
-            }
-            if (_random.Prob(comp.JackPotWinChance)) // Erida add PrizeMultiply
-            {
-                _audio.PlayPredicted(comp.JackPotWinSound, uid, args.User);
-                HandlePrize(uid, Loc.GetString("slotmachine-win-jackpot"), stack, PrizeMultiply(comp.JackPotPrizeAmount, comp.PrizeMultiplier));
-                return;
-            }
-            if (_random.Prob(comp.GodPotWinChance)) // THE GODPOT!!!
-            {
-                _audio.PlayPredicted(comp.GodPotWinSound, uid, args.User);
-                var coordinates = Transform(uid).Coordinates;
-                EntityManager.SpawnEntity(comp.GodPotPrize, coordinates);
-                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("slotmachine-win-godpot"), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
-                return;
-            }
-
-            _audio.PlayPredicted(comp.LoseSound, uid, args.User); // If nothing then lose
-        }
-
-        // Erida start
-        private int PrizeMultiply(int prize, float prizeMultiplier)
-        {
-            return (int) (prize * prizeMultiplier);
-        }
-        // Erida end
-        private void HandlePrize(EntityUid uid, string msg, StackComponent? stack, int prize)
-        {
-            if (stack == null)
-            {
-                // Spawn a new cash stack if there's no money left in the machine
-                var coordinates = Transform(uid).Coordinates;
-                var newStack = EntityManager.SpawnEntity("SpaceCash", coordinates);
-                if (TryComp<StackComponent>(newStack, out var newStackComp))
-                {
-                    _stackSystem.SetCount(newStack, prize, newStackComp);
-                    Dirty(newStack, newStackComp);
-                }
-
-                _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
-                return;
-            }
-
-            // Add money to the stack and play a message
-            _stackSystem.SetCount(stack.Owner, stack.Count + prize, stack);
-            Dirty(stack.Owner, stack);
-            _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+            _prize.HandlePrize(ent.Comp.Prizes, ent.Owner);
         }
     }
 }
