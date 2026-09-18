@@ -1637,3 +1637,20 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/55
   avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
   title: '[Port] Washing & stainable systems'
+- author: Wendor299
+  changes:
+    - type: Add
+      message: Новые режимы наведения турелей + UI
+    - type: Add
+      message: Админы через ПКМ выдавать больше антагов
+    - type: Add
+      message: Новый UI интерфейса для вендор-раздатчиков
+    - type: Tweak
+      message: Логика турелей
+    - type: Tweak
+      message: Мимы снова могут писать на бумаге и в нано-чате
+  id: 125
+  time: '2026-09-18T20:30:00.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/57
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: More content
