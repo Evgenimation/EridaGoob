@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Client._Reserve.VendingMachines
+using Content.Client._Reserve.VendingMachines;
 using Content.Shared.VendingMachines;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
