@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Changelog;
-using Content.Client._RMC14.LinkAccount;
-using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
@@ -11,6 +9,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
 using Robust.Client.Console;
+using Content.Client._Erida.Discord.Linking;
 
 namespace Content.Client.Info
 {
@@ -42,7 +41,7 @@ namespace Content.Client.Info
             AddInfoButton("server-info-telegram-button", CCVars.InfoLinksTelegram);
             AddInfoButton("rmc-ui-patreon", CCVars.InfoLinksPatreon);
 
-            var linkAccount = UserInterfaceManager.GetUIController<LinkAccountUIController>();
+            var linkAccount = UserInterfaceManager.GetUIController<DiscordLinkingUIController>();
             var linkAccountButton = new Button
             {
                 Text = Loc.GetString("rmc-ui-link-discord-account"),

@@ -42,7 +42,7 @@ public sealed partial class ServerApi
 
             await RespondOk(context);
 
-            _sawmill.Info($"Forced discord linking update for ${player.Name}");
+            _sawmill.Info($"Forced discord linking update for {player.Name}");
         });
     }
 

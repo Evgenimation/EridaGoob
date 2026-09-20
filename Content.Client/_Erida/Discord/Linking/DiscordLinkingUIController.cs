@@ -13,7 +13,7 @@ using Content.Shared._Erida.CCVar;
 
 namespace Content.Client._Erida.Discord.Linking;
 
-public sealed class LinkAccountUIController : UIController
+public sealed class DiscordLinkingUIController : UIController
 {
     [Dependency] private readonly IClipboardManager _clipboard = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
@@ -64,7 +64,7 @@ public sealed class LinkAccountUIController : UIController
                 _clipboard.SetText(_code.ToString());
                 _window.CopyButton.Text = Loc.GetString("rmc-ui-link-discord-account-copied");
                 _window.CopyButton.Disabled = true;
-                _disableUntil = _timing.RealTime.Add(TimeSpan.FromSeconds(9));
+                _disableUntil = _timing.RealTime.Add(TimeSpan.FromSeconds(3));
             };
 
             var messageLink = _config.GetCVar(ECCVars.DiscordAccountLinkingMessageLink);
