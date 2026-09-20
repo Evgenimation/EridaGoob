@@ -91,7 +91,7 @@ public sealed class LinkAccountManager : IPostInjectInit
 
     private void SendPatronStatus(ICommonSession player)
     {
-        var connected = _connected.GetValueOrDefault(player.UserId);
+        SharedRMCPatronFull? connected = _connected.GetValueOrDefault(player.UserId);
         var msg = new LinkAccountStatusMsg { Patron = connected, };
         _net.ServerSendMessage(msg, player.Channel);
         SendPatrons(player);

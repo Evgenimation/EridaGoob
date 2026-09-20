@@ -32,4 +32,7 @@ public sealed partial class ECCVars
     /// </summary>
     public static readonly CVarDef<string> DiscordPermissionsWebhook =
         CVarDef.Create("discord.permissions_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    public static readonly CVarDef<string> DiscordAccountLinkingMessageLink =
+        CVarDef.Create("discord.discord_account_linking_message_link", "", CVar.REPLICATED | CVar.SERVER);
 }

@@ -42,15 +42,13 @@ namespace Content.Client.Info
             AddInfoButton("server-info-telegram-button", CCVars.InfoLinksTelegram);
             AddInfoButton("rmc-ui-patreon", CCVars.InfoLinksPatreon);
 
-            // Erida start
-            // var linkAccount = UserInterfaceManager.GetUIController<LinkAccountUIController>();
-            // var linkAccountButton = new Button
-            // {
-            //     Text = Loc.GetString("rmc-ui-link-discord-account"),
-            // };
-            // linkAccountButton.OnPressed += _ => linkAccount.ToggleWindow();
-            // buttons.AddChild(linkAccountButton);
-            // Erida end
+            var linkAccount = UserInterfaceManager.GetUIController<LinkAccountUIController>();
+            var linkAccountButton = new Button
+            {
+                Text = Loc.GetString("rmc-ui-link-discord-account"),
+            };
+            linkAccountButton.OnPressed += _ => linkAccount.ToggleWindow();
+            buttons.AddChild(linkAccountButton);
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var guidebookButton = new Button() { Text = Loc.GetString("server-info-guidebook-button") };

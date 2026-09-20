@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server._CorvaxGoob.TTS;
+using Content.Server._Erida.Administration;
 using Content.Server._Goobstation.Antag;
 using Content.Server._Orion.ServerProtection.Chat;
 using Content.Server.Acz;
@@ -79,6 +80,7 @@ namespace Content.Server.Entry
         [Dependency] private readonly RecipeManager _recipe = default!;
         [Dependency] private readonly RulesManager _rules = default!;
         [Dependency] private readonly ServerApi _serverApi = default!;
+        [Dependency] private readonly EridaServerApi _eridaServerApi = default!;
         [Dependency] private readonly ServerInfoManager _serverInfo = default!;
         [Dependency] private readonly ServerUpdateManager _updateManager = default!;
 
@@ -131,6 +133,7 @@ namespace Content.Server.Entry
             _ghostKick.Initialize();
             _serverInfo.Initialize();
             _serverApi.Initialize();
+            _eridaServerApi.Initialize(); // Erida edit
             _voteManager.Initialize();
             _updateManager.Initialize();
             _playTimeTracking.Initialize();

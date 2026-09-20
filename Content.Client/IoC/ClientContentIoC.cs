@@ -29,6 +29,7 @@ using Content.Shared.Chat;
 using Content.Shared.IoC;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
+using Content.Client._Erida.Discord.Linking;
 
 namespace Content.Client.IoC
 {
@@ -66,6 +67,7 @@ namespace Content.Client.IoC
             collection.Register<TitleWindowManager>();
             collection.Register<LinkAccountManager>(); // RMC14
             collection.Register<ClientsidePlaytimeTrackingManager>();
+            collection.Register<DiscordLinkingManager>(); // Erida
         }
     }
 }
