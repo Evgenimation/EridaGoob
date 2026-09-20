@@ -9,8 +9,8 @@ namespace Content.Shared._Erida.CCVar;
 public sealed partial class ECCVars
 {
     public static readonly CVarDef<string> ApiToken =
-        CVarDef.Create("eapi.api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+        CVarDef.Create("eapi.key", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     public static readonly CVarDef<string> ApiUrl =
-        CVarDef.Create("eapi.api_url", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+        CVarDef.Create("eapi.url", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 }
