@@ -1654,3 +1654,12 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/57
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: More content
+- author: Lytheriia
+  changes:
+    - type: Add
+      message: Окно ахелпов теперь отображает верифицирован ли игрок
+  id: 126
+  time: '2026-09-21T12:39:41.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/59
+  avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
+  title: '[Add] Verified icon in ahelp window'
