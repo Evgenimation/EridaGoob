@@ -5,8 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-server-currency-name-singular = Аиршипс Коин
-server-currency-name-plural = Аиршипс Коины
+server-currency-name-singular = Коин
+server-currency-name-plural = Коины
 
 ## Команды
 
@@ -60,9 +60,9 @@ gs-balanceui-shop-buy = Купить
 gs-balanceui-shop-footer = ⚠ Используйте ваш токен через Ahelp. Только 1 раз в день.
 gs-balanceui-shop-token-label = Токены
 gs-balanceui-shop-tittle-label = Титулы
-gs-balanceui-shop-buy-token-antag = Купить токен антага - { $price } Аиршипс Коинов
-gs-balanceui-shop-buy-token-admin-abuse = Купить токен на злоупотребление админом - { $price } Аиршипс Коинов
-gs-balanceui-shop-buy-token-hat = Купить токен на шляпу - { $price } Аиршипс Коинов
+gs-balanceui-shop-buy-token-antag = Купить токен антага - { $price } Коинов
+gs-balanceui-shop-buy-token-admin-abuse = Купить токен на злоупотребление админом - { $price } Коинов
+gs-balanceui-shop-buy-token-hat = Купить токен на шляпу - { $price } Коинов
 gs-balanceui-shop-token-antag = Токен высокого уровня антага
 gs-balanceui-shop-token-admin-abuse = Токен злоупотребления админом
 gs-balanceui-shop-token-hat = Токен шляпы

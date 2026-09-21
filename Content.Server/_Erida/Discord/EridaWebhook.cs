@@ -96,6 +96,8 @@ public sealed partial class EridaWebhooks : IPostInjectInit
         { WebhookType.CoinsRem, ColorToDiscordInt(Color.FromHex("#00706C")) },
         { WebhookType.CoinsSet, ColorToDiscordInt(Color.FromHex("#0d3937")) },
 
+        { WebhookType.TokenBuy, ColorToDiscordInt(Color.FromHex("#007e63")) },
+
         { WebhookType.AdminRoleAdd, ColorToDiscordInt(Color.FromHex("#711300")) },
         { WebhookType.AdminRoleRem, ColorToDiscordInt(Color.FromHex("#a61c00")) },
         { WebhookType.AdminRoleUpdate, ColorToDiscordInt(Color.FromHex("#bb1f00")) },
@@ -114,6 +116,8 @@ public sealed partial class EridaWebhooks : IPostInjectInit
         CoinsAdd,
         CoinsRem,
         CoinsSet,
+
+        TokenBuy,
 
         AdminRoleAdd,
         AdminRoleRem,

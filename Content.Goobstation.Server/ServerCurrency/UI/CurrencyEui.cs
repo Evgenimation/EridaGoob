@@ -3,7 +3,9 @@
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Goobstation.Shared.ServerCurrency;
 using Content.Goobstation.Shared.ServerCurrency.UI;
+using Content.Server._Erida.Discord;
 using Content.Server.Administration.Notes;
+using Content.Server.Chat.Managers;
 using Content.Server.EUI;
 using Content.Shared.Eui;
 using Robust.Shared.Player;
@@ -16,6 +18,9 @@ namespace Content.Goobstation.Server.ServerCurrency.UI
         [Dependency] private readonly ICommonCurrencyManager _currencyMan = default!;
         [Dependency] private readonly IAdminNotesManager _notesMan = default!;
         [Dependency] private readonly IPrototypeManager _protoMan = default!;
+        [Dependency] private readonly IChatManager _chat = default!; // Erida edit
+        [Dependency] private readonly EridaWebhooks _webhooks = default!; // Erida edit
+
         public CurrencyEui()
         {
             IoCManager.InjectDependencies(this);
@@ -58,6 +63,11 @@ namespace Content.Goobstation.Server.ServerCurrency.UI
             await _notesMan.AddAdminRemark(Player, Player.UserId, 0,
                 Loc.GetString(token.AdminNote), 0, false, null);
             _currencyMan.RemoveCurrency(Player.UserId, token.Price);
+
+            // Erida start
+            _chat.SendAdminAnnouncement($"{Player.Name} " + Loc.GetString(token.AdminNote));
+            _webhooks.SendTokenBoughtMessage(Player.UserId, token);
+            // Erida end
         }
     }
 }
