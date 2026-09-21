@@ -27,6 +27,8 @@ namespace Content.Client.Administration.UI.Bwoink
                 Title = $"{sel.CharacterName} / {sel.Username} | {Loc.GetString("generic-playtime-title")}: ";
 
                 Title += sel.OverallPlaytime != null ? sel.PlaytimeString : Loc.GetString("generic-unknown-title");
+
+                Title += sel.IsVerified ? " | " + Loc.GetString("player-tab-verified-prefix") : string.Empty; // Erida edit
             };
 
             OnOpen += () =>

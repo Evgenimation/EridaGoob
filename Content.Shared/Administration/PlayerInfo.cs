@@ -22,6 +22,7 @@ public sealed record PlayerInfo(
     bool Connected,
     bool ActiveThisRound,
     bool IsGhost, // Goobstation
+    bool IsVerified, // Erida edit
     TimeSpan? OverallPlaytime)
 {
     private string? _playtimeString;

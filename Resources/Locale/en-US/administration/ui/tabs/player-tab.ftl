@@ -25,3 +25,5 @@ player-tab-is-antag-no = NO
 player-tab-character-name-antag-symbol = {$symbol} {$name}
 
 player-tab-antag-prefix = 🗡
+
+player-tab-verified-prefix = 🛡

@@ -49,6 +49,10 @@ public sealed class DiscordLinkingSystem : EntitySystem
         RaiseNetworkEvent(new VerifyStatusResponse { Verified = status?.Verified ?? false }, session);
     }
 
+    /// <summary>
+    /// Retrieves the player linked user data from API and updates the local cache.
+    /// </summary>
+    /// <param name="session"></param>
     private async Task RefreshPlayer(ICommonSession session)
     {
         var status = await _eridaServerApi.GetLinkedUserData(session.UserId);
@@ -70,10 +74,54 @@ public sealed class DiscordLinkingSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Forces the cached data for the specified player to be invalidated and refreshed.
+    /// </summary>
+    /// <param name="userId"></param>
     public void ForceUpdateUserData(NetUserId userId)
     {
         _cachedPlayers.Remove(userId);
         if (_playerManager.TryGetSessionById(userId, out var session))
             _ = RefreshPlayer(session);
     }
+
+    /// <summary>
+    /// If player was cached by system returns his LinkStatus
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns><see cref="LinkStatus"/></returns>
+    private LinkStatus GetCachedUserInfo(NetUserId userId)
+    {
+        if (_cachedPlayers.ContainsKey(userId))
+            return _cachedPlayers[userId];
+
+        return new LinkStatus();
+    }
+
+    /// <summary>
+    /// Retrieves linked user information from the server.
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns>
+    /// The user's linked status, or an empty <see cref="LinkStatus"/> if no data is found.
+    /// </returns>
+    private async Task<LinkStatus> GetUserInfo(NetUserId userId)
+    {
+        return await _eridaServerApi.GetLinkedUserData(userId)
+            ?? new LinkStatus();
+    }
+
+    /// <summary>
+    /// Determines whether the specified player has been verified.
+    /// Checks only cached players.
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns>
+    /// <c>true</c> if the user is verified otherwise <c>false</c>.
+    /// </returns>
+    public bool IsUserVerified(NetUserId userId)
+    {
+        return GetCachedUserInfo(userId).Verified;
+    }
+
 }
