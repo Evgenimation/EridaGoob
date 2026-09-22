@@ -58,6 +58,7 @@ public sealed partial class TTSSystem : EntitySystem
 
         SubscribeNetworkEvent<RequestPreviewTTSEvent>(OnRequestPreviewTTS);
         SubscribeLocalEvent<CommunicationConsoleAnnouncementEvent>(OnConsoleAnnouncement);
+        SubscribeLocalEvent<CodeChangedAnnouncementEvent>(OnConsoleCodeChanged);
 
         RegisterRateLimits();
     }

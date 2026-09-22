@@ -69,14 +69,38 @@ public sealed partial class TTSSystem
             SendStationAnnouncement(ev.Uid, ev.Text, protoVoice.Speaker, ev.Component.Sound);
     }
 
+    // Erida start
+    private void OnConsoleCodeChanged(ref CodeChangedAnnouncementEvent ev)
+    {
+        if (_isPlaying)
+            return;
+
+        var ttsComp = new TTSComponent();
+        ttsComp.VoicePrototypeId = ev.VoiceId;
+
+        var voiceId = ttsComp.VoicePrototypeId;
+
+        if (!_isEnabled ||
+            voiceId == null ||
+            voiceId == "")
+            return;
+
+        if (!_prototypeManager.TryIndex<TTSVoicePrototype>(voiceId, out var protoVoice))
+            return;
+
+        SendStationAnnouncement(ev.Uid, ev.Text, protoVoice.Speaker, ev.Sound);
+    }
+    // Erida end
+
     async private void SendGlobalAnnouncement(string text, string voice, SoundSpecifier announcementSound)
     {
         SendTTS(Filter.Broadcast(), text, voice, announcementSound);
     }
 
-    async private void SendStationAnnouncement(EntityUid consoleUid, string text, string voice, SoundSpecifier announcementSound)
+    async private void SendStationAnnouncement(EntityUid consoleUid, string text, string voice, SoundSpecifier announcementSound, EntityUid? station = null)
     {
-        var station = _stationSystem.GetOwningStation(consoleUid);
+        if (station == null) // Erida edit
+            station = _stationSystem.GetOwningStation(consoleUid);
 
         if (station is null)
             return;
@@ -95,3 +119,14 @@ public sealed partial class TTSSystem
         _soundDataToSend = await GenerateTTS(text, voice);
     }
 }
+
+// Erida start
+[ByRefEvent]
+public record struct CodeChangedAnnouncementEvent(EntityUid Uid, SoundSpecifier Sound, string Text, string voiceId)
+{
+    public EntityUid Uid = Uid;
+    public SoundSpecifier Sound = Sound;
+    public string Text = Text;
+    public string VoiceId = voiceId;
+}
+// Erida end

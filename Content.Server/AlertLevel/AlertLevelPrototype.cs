@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._CorvaxGoob.TTS;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -81,4 +82,6 @@ public sealed partial class AlertLevelDetail
     /// Exists so checks run in the right order.
     /// </summary>
     [DataField] public bool EmagSelectable { get; private set; }
+
+    [DataField("voice")] public string VoicePrototypeId = string.Empty;
 }

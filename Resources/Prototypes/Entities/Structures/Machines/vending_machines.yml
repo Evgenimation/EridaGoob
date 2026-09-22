@@ -128,6 +128,10 @@
     understands:
     - TauCetiBasic
     - RobotTalk
+# Erida edit start
+  - type: TTS
+    voice: Glados
+# Erida edit end
 
 - type: entity
   id: VendingMachineWallmount

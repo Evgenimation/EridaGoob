@@ -30,7 +30,7 @@ public sealed partial class AmberAlertComponent : Component
     /// The alert level this component gates.
     /// </summary>
     [DataField]
-    public string AmberLevel = "amber";
+    public string AmberLevel = "red"; // Erida edit
 
     /// <summary>
     /// How long a first authorization is held while waiting for a second command member.

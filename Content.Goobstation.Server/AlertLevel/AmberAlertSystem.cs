@@ -119,6 +119,9 @@ public sealed class AmberAlertSystem : EntitySystem
         var console = ent.Owner;
         var stationUid = station.Value;
 
+        if (args.User == ent.Owner) // Erida edit. Ignore
+            return;
+
         args.Verbs.Add(new AlternativeVerb
         {
             Text = Loc.GetString("alert-level-amber-verb-text"),

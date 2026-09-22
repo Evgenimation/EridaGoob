@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server._CorvaxGoob.TTS;
 using Content.Server.Chat.Systems;
+using Content.Server.Communications;
 using Content.Server.Station.Systems;
 using Content.Shared.CCVar;
 using Robust.Shared.Audio.Systems;
@@ -145,7 +147,7 @@ public sealed class AlertLevelSystem : EntitySystem
     {
         if (!Resolve(station, ref component, ref dataComponent)
             || component.AlertLevels == null
-            || !component.AlertLevels.Levels.TryGetValue(level, out var detail)
+            || !component.AlertLevels.Levels.TryGetValue(level, out AlertLevelDetail? detail)
             || component.CurrentLevel == level)
         {
             return;
@@ -209,14 +211,22 @@ public sealed class AlertLevelSystem : EntitySystem
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));
+
+        // Erida start
+        if (detail.Sound != null)
+        {
+            var ev = new CodeChangedAnnouncementEvent(station, detail.Sound, announcement, detail.VoicePrototypeId);
+            RaiseLocalEvent(ref ev);
+        }
+        // Erida end
     }
 }
 
 public sealed class AlertLevelDelayFinishedEvent : EntityEventArgs
-{}
+{ }
 
 public sealed class AlertLevelPrototypeReloadedEvent : EntityEventArgs
-{}
+{ }
 
 public sealed class AlertLevelChangedEvent : EntityEventArgs
 {
