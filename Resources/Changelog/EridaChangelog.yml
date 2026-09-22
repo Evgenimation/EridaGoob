@@ -1663,3 +1663,24 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/59
   avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
   title: '[Add] Verified icon in ahelp window'
+- author: Lytheriia
+  changes:
+    - type: Add
+      message: Добавлена функция озвучки текста кода станции ТТС'ом
+    - type: Add
+      message: ЦИИ и вендоматы получили свои ттс
+    - type: Tweak
+      message: Возращены старые звуки кодов угроз
+    - type: Fix
+      message: Исправлен порядок янтарного и красного кода, а так же их локализация
+    - type: Tweak
+      message: Красный код требует авторизации двух членов командного состава
+    - type: Fix
+      message: >-
+        Агосты более не могут открыть доступ к красному коду через энтити
+        призрака
+  id: 127
+  time: '2026-09-22T02:32:44.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/60
+  avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
+  title: '[Tweak] TTS changes'
