@@ -1695,3 +1695,12 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/61
   avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
   title: '[Tweak] New code sounds'
+- author: Lytheriia
+  changes:
+    - type: Fix
+      message: 'Возвращена механика копирования декалей '
+  id: 129
+  time: '2026-09-23T13:41:06.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/62
+  avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
+  title: '[Add] Decal copy button'
