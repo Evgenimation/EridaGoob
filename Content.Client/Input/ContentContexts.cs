@@ -54,6 +54,11 @@ namespace Content.Client.Input
             // Not in engine so that the RCD can rotate objects
             common.AddFunction(EngineKeyFunctions.EditorRotateObject);
 
+            // Erida start
+            common.AddFunction(ContentKeyFunctions.EditorNextObject);
+            common.AddFunction(ContentKeyFunctions.EditorPreviousObject);
+            // Erida end
+
             var human = contexts.GetContext("human");
             human.AddFunction(EngineKeyFunctions.MoveUp);
             human.AddFunction(EngineKeyFunctions.MoveDown);

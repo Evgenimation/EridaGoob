@@ -296,6 +296,11 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EditorGridPlace);
             AddButton(EngineKeyFunctions.EditorLinePlace);
             AddButton(EngineKeyFunctions.EditorRotateObject);
+            // Erida start
+            AddButton(ContentKeyFunctions.EditorNextObject);
+            AddButton(ContentKeyFunctions.EditorPreviousObject);
+            // Erida end
+
             AddButton(ContentKeyFunctions.EditorFlipObject);
             AddButton(ContentKeyFunctions.EditorCopyObject);
 
