@@ -1684,3 +1684,14 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/60
   avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
   title: '[Tweak] TTS changes'
+- author: Lytheriia
+  changes:
+    - type: Remove
+      message: Shouko временно вырезана из доступных карт
+    - type: Tweak
+      message: Звуки кодов угроз заменены на более длительные
+  id: 128
+  time: '2026-09-23T10:25:13.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/61
+  avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
+  title: '[Tweak] New code sounds'
