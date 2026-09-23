@@ -296,8 +296,14 @@ public abstract partial class SharedBloodstreamSystem
         if (args.IgnoreBlockers)
             return;
 
+        // erida edit
         if (component.IsBleeding)
-            args.Cancelled = true;
+        {
+            component.BleedingAmountRaw = 0;
+            component.Scaling = 0;
+            component.IsBleeding = false;
+            Dirty(uid, component);
+        }
     }
 
     private void OnBleedInflicterSeverityUpdate(EntityUid uid,

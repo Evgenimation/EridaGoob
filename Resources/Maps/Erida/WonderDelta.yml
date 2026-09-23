@@ -3,9 +3,9 @@ meta:
   category: Map
   engineVersion: 275.1.1
   forkId: dserida
-  forkVersion: 544951eb17a4826fd43b7773200c8150441326b3
-  time: 09/16/2026 01:59:37
-  entityCount: 41665
+  forkVersion: 6885d57fafae6dda96f24d6fb6064ea79524223f
+  time: 09/23/2026 13:17:18
+  entityCount: 41723
 maps:
 - 1
 grids:
@@ -20873,7 +20873,8 @@ entities:
           17,-5:
             0: 65535
           17,0:
-            0: 28926
+            0: 20734
+            10: 8192
           18,-4:
             0: 15
             1: 2304
@@ -21191,7 +21192,7 @@ entities:
             1: 250
           20,0:
             0: 54655
-            10: 128
+            11: 128
           20,-3:
             1: 58026
           21,-3:
@@ -21207,7 +21208,7 @@ entities:
           22,-1:
             0: 56797
           22,0:
-            10: 1
+            11: 1
             0: 49072
           23,-2:
             1: 53104
@@ -21245,7 +21246,8 @@ entities:
           17,1:
             0: 30583
           17,2:
-            0: 1911
+            0: 1399
+            12: 512
           18,1:
             0: 30578
           18,2:
@@ -21405,7 +21407,7 @@ entities:
             0: 3822
           21,1:
             0: 56541
-            10: 256
+            11: 256
           21,2:
             0: 3852
           21,3:
@@ -21776,8 +21778,18 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
+            Oxygen: 23.57087
+            Nitrogen: 88.67137
+        - volume: 2500
+          temperature: 293.15
+          moles:
             Oxygen: 21.6852
             Nitrogen: 81.57766
+        - volume: 2500
+          temperature: 293.14948
+          moles:
+            Oxygen: 18.472576
+            Nitrogen: 69.49208
         chunkSize: 4
     - type: Joint
       joints:
@@ -21788,8 +21800,8 @@ entities:
           localAnchorB: 5,0.49999997
           localAnchorA: 90,21.5
           referenceAngle: -3.173097E-05
-          damping: 1211.5648
-          stiffness: 10874.98
+          damping: 1211.5673
+          stiffness: 10875.002
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
     - type: TileHistory
@@ -25930,7 +25942,7 @@ entities:
       pos: -8.5,36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -365853.94
+      secondsUntilStateChange: -369787.25
       state: Opening
 - proto: AirlockBlueshieldOfficerCommandGlassLocked
   entities:
@@ -26176,7 +26188,7 @@ entities:
       pos: -116.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -376483.34
+      secondsUntilStateChange: -380416.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26187,7 +26199,7 @@ entities:
       pos: -120.5,23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -136.18579
+      secondsUntilStateChange: -4069.5002
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26288,7 +26300,7 @@ entities:
       pos: 15.5,14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -112206.32
+      secondsUntilStateChange: -116139.63
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26531,7 +26543,7 @@ entities:
       pos: -74.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -360785.4
+      secondsUntilStateChange: -364718.72
       state: Opening
   - uid: 391
     components:
@@ -27097,7 +27109,7 @@ entities:
       pos: 90.5,21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234558.9
+      secondsUntilStateChange: -238492.22
       changeAirtight: False
       state: Opening
     - type: Docking
@@ -27126,7 +27138,7 @@ entities:
       pos: 4.5,0.5
       parent: 41170
     - type: Door
-      secondsUntilStateChange: -234558.28
+      secondsUntilStateChange: -238491.6
       changeAirtight: False
       state: Opening
     - type: Docking
@@ -27734,7 +27746,7 @@ entities:
       pos: -29.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -365890.94
+      secondsUntilStateChange: -369824.25
       state: Opening
 - proto: AirlockKitchenLocked
   entities:
@@ -27808,7 +27820,7 @@ entities:
       pos: 44.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -303953.66
+      secondsUntilStateChange: -307886.97
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -28072,7 +28084,7 @@ entities:
       pos: 11.5,61.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -462699.6
+      secondsUntilStateChange: -466632.9
       state: Opening
   - uid: 613
     components:
@@ -28137,7 +28149,7 @@ entities:
       pos: 44.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -400529.3
+      secondsUntilStateChange: -404462.62
       state: Opening
   - uid: 623
     components:
@@ -68058,6 +68070,11 @@ entities:
     - type: Transform
       pos: 44.5,-16.5
       parent: 2
+  - uid: 16224
+    components:
+    - type: Transform
+      pos: 56.5,30.5
+      parent: 2
   - uid: 16482
     components:
     - type: Transform
@@ -68072,6 +68089,16 @@ entities:
     components:
     - type: Transform
       pos: 60.5,-41.5
+      parent: 2
+  - uid: 41051
+    components:
+    - type: Transform
+      pos: 74.5,14.5
+      parent: 2
+  - uid: 41072
+    components:
+    - type: Transform
+      pos: 55.5,30.5
       parent: 2
   - uid: 41143
     components:
@@ -68343,6 +68370,216 @@ entities:
     - type: Transform
       pos: -0.5,10.5
       parent: 41170
+  - uid: 41678
+    components:
+    - type: Transform
+      pos: 54.5,30.5
+      parent: 2
+  - uid: 41680
+    components:
+    - type: Transform
+      pos: 52.5,30.5
+      parent: 2
+  - uid: 41681
+    components:
+    - type: Transform
+      pos: 51.5,30.5
+      parent: 2
+  - uid: 41682
+    components:
+    - type: Transform
+      pos: 50.5,30.5
+      parent: 2
+  - uid: 41684
+    components:
+    - type: Transform
+      pos: 57.5,30.5
+      parent: 2
+  - uid: 41685
+    components:
+    - type: Transform
+      pos: 93.5,13.5
+      parent: 2
+  - uid: 41686
+    components:
+    - type: Transform
+      pos: 94.5,13.5
+      parent: 2
+  - uid: 41687
+    components:
+    - type: Transform
+      pos: 90.5,18.5
+      parent: 2
+  - uid: 41688
+    components:
+    - type: Transform
+      pos: 90.5,17.5
+      parent: 2
+  - uid: 41689
+    components:
+    - type: Transform
+      pos: 91.5,18.5
+      parent: 2
+  - uid: 41690
+    components:
+    - type: Transform
+      pos: 83.5,14.5
+      parent: 2
+  - uid: 41691
+    components:
+    - type: Transform
+      pos: 83.5,15.5
+      parent: 2
+  - uid: 41692
+    components:
+    - type: Transform
+      pos: 82.5,15.5
+      parent: 2
+  - uid: 41693
+    components:
+    - type: Transform
+      pos: 85.5,14.5
+      parent: 2
+  - uid: 41694
+    components:
+    - type: Transform
+      pos: 85.5,15.5
+      parent: 2
+  - uid: 41695
+    components:
+    - type: Transform
+      pos: 86.5,15.5
+      parent: 2
+  - uid: 41696
+    components:
+    - type: Transform
+      pos: 84.5,11.5
+      parent: 2
+  - uid: 41697
+    components:
+    - type: Transform
+      pos: 85.5,11.5
+      parent: 2
+  - uid: 41698
+    components:
+    - type: Transform
+      pos: 82.5,11.5
+      parent: 2
+  - uid: 41699
+    components:
+    - type: Transform
+      pos: 81.5,11.5
+      parent: 2
+  - uid: 41700
+    components:
+    - type: Transform
+      pos: 75.5,14.5
+      parent: 2
+  - uid: 41701
+    components:
+    - type: Transform
+      pos: 75.5,15.5
+      parent: 2
+  - uid: 41702
+    components:
+    - type: Transform
+      pos: 74.5,17.5
+      parent: 2
+  - uid: 41703
+    components:
+    - type: Transform
+      pos: 75.5,17.5
+      parent: 2
+  - uid: 41704
+    components:
+    - type: Transform
+      pos: 75.5,18.5
+      parent: 2
+  - uid: 41706
+    components:
+    - type: Transform
+      pos: 74.5,26.5
+      parent: 2
+  - uid: 41707
+    components:
+    - type: Transform
+      pos: 76.5,26.5
+      parent: 2
+  - uid: 41708
+    components:
+    - type: Transform
+      pos: 61.5,31.5
+      parent: 2
+  - uid: 41709
+    components:
+    - type: Transform
+      pos: 60.5,31.5
+      parent: 2
+  - uid: 41710
+    components:
+    - type: Transform
+      pos: 61.5,32.5
+      parent: 2
+  - uid: 41711
+    components:
+    - type: Transform
+      pos: 62.5,32.5
+      parent: 2
+  - uid: 41712
+    components:
+    - type: Transform
+      pos: 62.5,33.5
+      parent: 2
+  - uid: 41713
+    components:
+    - type: Transform
+      pos: 63.5,33.5
+      parent: 2
+  - uid: 41714
+    components:
+    - type: Transform
+      pos: 64.5,33.5
+      parent: 2
+  - uid: 41715
+    components:
+    - type: Transform
+      pos: 65.5,33.5
+      parent: 2
+  - uid: 41716
+    components:
+    - type: Transform
+      pos: 66.5,33.5
+      parent: 2
+  - uid: 41717
+    components:
+    - type: Transform
+      pos: 66.5,32.5
+      parent: 2
+  - uid: 41718
+    components:
+    - type: Transform
+      pos: 67.5,32.5
+      parent: 2
+  - uid: 41719
+    components:
+    - type: Transform
+      pos: 67.5,31.5
+      parent: 2
+  - uid: 41720
+    components:
+    - type: Transform
+      pos: 68.5,31.5
+      parent: 2
+  - uid: 41721
+    components:
+    - type: Transform
+      pos: 68.5,30.5
+      parent: 2
+  - uid: 41722
+    components:
+    - type: Transform
+      pos: 40.5,2.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 8268
@@ -91511,6 +91748,21 @@ entities:
     - type: Transform
       pos: 56.5,-28.5
       parent: 2
+  - uid: 15429
+    components:
+    - type: Transform
+      pos: 84.5,-3.5
+      parent: 2
+  - uid: 16250
+    components:
+    - type: Transform
+      pos: 82.5,-4.5
+      parent: 2
+  - uid: 41075
+    components:
+    - type: Transform
+      pos: 84.5,-4.5
+      parent: 2
   - uid: 41153
     components:
     - type: Transform
@@ -91546,6 +91798,21 @@ entities:
     - type: Transform
       pos: 3.5,3.5
       parent: 41170
+  - uid: 41503
+    components:
+    - type: Transform
+      pos: 83.5,-4.5
+      parent: 2
+  - uid: 41505
+    components:
+    - type: Transform
+      pos: 85.5,-4.5
+      parent: 2
+  - uid: 41683
+    components:
+    - type: Transform
+      pos: 84.5,-2.5
+      parent: 2
 - proto: CableMVStack
   entities:
   - uid: 12889
@@ -109136,8 +109403,11 @@ entities:
   - uid: 2121
     components:
     - type: Transform
+      anchored: True
       pos: 68.5,10.5
       parent: 2
+    - type: Physics
+      bodyType: Static
     - type: AccessReader
       accessListsOriginal:
       - - Armory
@@ -109668,14 +109938,14 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 15068
           - 16022
-          - 16021
-          - 16023
-          - 16024
-          - 15069
-          - 15070
           - 15071
+          - 15070
+          - 15069
+          - 16024
+          - 16023
+          - 16021
+          - 15068
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -110240,8 +110510,6 @@ entities:
     - type: Transform
       pos: -39.1003,-78.254105
       parent: 2
-    - type: Physics
-      sleepTime: 0.93333244
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -110266,31 +110534,40 @@ entities:
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
-  - uid: 16095
+  - uid: 41666
     components:
     - type: MetaData
-      name: ящик с имплантами Защита Разума
+      name: ящик с различными имплантами
     - type: Transform
+      anchored: True
       pos: 69.5,10.5
       parent: 2
+    - type: Physics
+      bodyType: Static
     - type: EntityStorage
       air:
         volume: 200
         immutable: False
-        temperature: 147.92336
-        moles: {}
+        temperature: 293.1462
+        moles:
+          Oxygen: 1.606311
+          Nitrogen: 6.042789
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 16097
-          - 16096
-          - 16101
-          - 16100
-          - 16099
-          - 16098
+          - 41667
+          - 41668
+          - 41669
+          - 41670
+          - 41671
+          - 41672
+          - 41673
+          - 41674
+          - 41675
+          - 41676
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -110848,22 +111125,24 @@ entities:
       parent: 2
 - proto: DefaultStationBeacon
   entities:
-  - uid: 16186
+  - uid: 16095
     components:
     - type: Transform
       pos: 71.5,-19.5
       parent: 2
     - type: NavMapBeacon
-      text: Зал Славы
-  - uid: 16187
+      text: Парк
+    - type: WarpPoint
+      location: Парк
+  - uid: 16096
     components:
     - type: Transform
       pos: 89.5,-20.5
       parent: 2
     - type: NavMapBeacon
-      text: бассейн
+      text: Бассейн
     - type: WarpPoint
-      location: бассейн
+      location: Бассейн
 - proto: DefaultStationBeaconAICore
   entities:
   - uid: 16188
@@ -110880,105 +111159,77 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconAME
   entities:
-  - uid: 16190
+  - uid: 16097
     components:
     - type: Transform
       pos: -69.5,-0.5
       parent: 2
-    - type: NavMapBeacon
-      text: Генераторная
-    - type: WarpPoint
-      location: Инженерный - Генераторная
 - proto: DefaultStationBeaconAnchor
   entities:
-  - uid: 16191
+  - uid: 16098
     components:
     - type: Transform
       pos: -63.5,-12.5
       parent: 2
 - proto: DefaultStationBeaconAnomalyGenerator
   entities:
-  - uid: 16192
+  - uid: 16099
     components:
     - type: Transform
       pos: -17.5,-57.5
       parent: 2
-    - type: NavMapBeacon
-      text: Аномалистика
-    - type: WarpPoint
-      location: РнД - Аномалии
 - proto: DefaultStationBeaconArmory
   entities:
-  - uid: 16193
+  - uid: 16100
     components:
     - type: Transform
       pos: 62.5,6.5
       parent: 2
-    - type: NavMapBeacon
-      text: Оружейная
-    - type: WarpPoint
-      location: Сб - оружиейная
 - proto: DefaultStationBeaconArrivals
   entities:
-  - uid: 16194
+  - uid: 16101
     components:
     - type: Transform
-      pos: -11.5,69.5
+      pos: -11.5,67.5
       parent: 2
-    - type: NavMapBeacon
-      text: Прибытие
-    - type: WarpPoint
-      location: Прибытие
 - proto: DefaultStationBeaconArtifactLab
   entities:
-  - uid: 41072
+  - uid: 31398
     components:
     - type: Transform
-      pos: -28.5,-43.5
+      pos: -28.5,-44.5
       parent: 2
 - proto: DefaultStationBeaconAtmospherics
   entities:
-  - uid: 16196
+  - uid: 16251
     components:
     - type: Transform
-      pos: -53.5,27.5
+      pos: -59.5,29.5
       parent: 2
 - proto: DefaultStationBeaconBar
   entities:
-  - uid: 16197
+  - uid: 16190
     components:
     - type: Transform
       pos: -10.5,41.5
       parent: 2
-    - type: NavMapBeacon
-      text: Бар
-    - type: WarpPoint
-      location: Сервис - Бар
 - proto: DefaultStationBeaconBotany
   entities:
-  - uid: 16198
+  - uid: 16191
     components:
     - type: Transform
       pos: -29.5,50.5
       parent: 2
-    - type: NavMapBeacon
-      text: Гидропоника
-    - type: WarpPoint
-      location: Сервис - Гидропоника
 - proto: DefaultStationBeaconBridge
   entities:
-  - uid: 16199
+  - uid: 41054
     components:
     - type: Transform
-      pos: -0.5,16.5
+      pos: -0.5,17.5
       parent: 2
-    - type: NavMapBeacon
-      text: Мостик
-    - type: WarpPoint
-      location: Мостик
 - proto: DefaultStationBeaconBrig
   entities:
-  - uid: 16200
+  - uid: 16193
     components:
     - type: Transform
       pos: 47.5,7.5
@@ -110987,16 +111238,16 @@ entities:
       text: Бриг
     - type: WarpPoint
       location: Бриг
-  - uid: 41054
+  - uid: 16194
     components:
     - type: Transform
-      pos: 91.5,9.5
+      pos: 91.5,8.5
       parent: 2
     - type: NavMapBeacon
       text: Пилот
     - type: WarpPoint
       location: Пилот
-  - uid: 41055
+  - uid: 16196
     components:
     - type: Transform
       pos: 75.5,22.5
@@ -111007,33 +111258,29 @@ entities:
       location: Комната Казни
 - proto: DefaultStationBeaconBrigMed
   entities:
-  - uid: 41051
+  - uid: 16197
     components:
     - type: Transform
       pos: 63.5,-4.5
       parent: 2
 - proto: DefaultStationBeaconCaptainsQuarters
   entities:
-  - uid: 16201
+  - uid: 16192
     components:
     - type: Transform
-      pos: 9.5,3.5
+      pos: 9.5,2.5
       parent: 2
-    - type: NavMapBeacon
-      text: Каюта капитана
-    - type: WarpPoint
-      location: Мостик - Комната капитана
 - proto: DefaultStationBeaconCargoBay
   entities:
-  - uid: 16202
+  - uid: 41055
     components:
     - type: Transform
-      pos: 37.5,50.5
+      pos: 36.5,50.5
       parent: 2
     - type: NavMapBeacon
       text: Карго док
     - type: WarpPoint
-      location: Карго - доки
+      location: Карго док
 - proto: DefaultStationBeaconCentComm
   entities:
   - uid: 15564
@@ -111058,44 +111305,32 @@ entities:
       location: Синий Щит
 - proto: DefaultStationBeaconCERoom
   entities:
-  - uid: 41075
+  - uid: 16200
     components:
     - type: Transform
       pos: -58.5,6.5
       parent: 2
 - proto: DefaultStationBeaconChapel
   entities:
-  - uid: 16204
+  - uid: 16201
     components:
     - type: Transform
       pos: -16.5,-70.5
       parent: 2
-    - type: NavMapBeacon
-      text: Церковь
-    - type: WarpPoint
-      location: Сервис - Церковь
 - proto: DefaultStationBeaconChemistry
   entities:
-  - uid: 16205
+  - uid: 16202
     components:
     - type: Transform
       pos: 5.5,-32.5
       parent: 2
-    - type: NavMapBeacon
-      text: Химия
-    - type: WarpPoint
-      location: Медотсек - Химия
 - proto: DefaultStationBeaconCMORoom
   entities:
-  - uid: 16206
+  - uid: 16204
     components:
     - type: Transform
-      pos: 22.5,-45.5
+      pos: 22.5,-46.5
       parent: 2
-    - type: NavMapBeacon
-      text: Кабинет Главного врача
-    - type: WarpPoint
-      location: Кабинет Главного врача
 - proto: DefaultStationBeaconCourtroom
   entities:
   - uid: 16207
@@ -111105,16 +111340,12 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconCryonics
   entities:
-  - uid: 16208
+  - uid: 16205
     components:
     - type: Transform
       pos: 22.5,-39.5
       parent: 2
-    - type: NavMapBeacon
-      text: Крио
-    - type: WarpPoint
-      location: Медотсек - криогеника
-  - uid: 16209
+  - uid: 16206
     components:
     - type: Transform
       pos: 35.5,-66.5
@@ -111132,48 +111363,28 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconDetectiveRoom
   entities:
-  - uid: 16211
+  - uid: 16208
     components:
     - type: Transform
       pos: 30.5,11.5
       parent: 2
 - proto: DefaultStationBeaconDisposals
   entities:
-  - uid: 16212
+  - uid: 16209
     components:
     - type: Transform
       pos: 28.5,59.5
       parent: 2
-    - type: NavMapBeacon
-      text: Мусорка
-    - type: WarpPoint
-      location: Мусоросброс
 - proto: DefaultStationBeaconDorms
   entities:
-  - uid: 16213
+  - uid: 16211
     components:
     - type: Transform
       pos: 48.5,-19.5
       parent: 2
-    - type: NavMapBeacon
-      text: Жилой отсек
-    - type: WarpPoint
-      location: Жилой отсек
 - proto: DefaultStationBeaconEngineering
   entities:
-  - uid: 16214
-    components:
-    - type: Transform
-      pos: -35.5,15.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Хранилище Плат
-  - uid: 16215
-    components:
-    - type: Transform
-      pos: -53.5,13.5
-      parent: 2
-  - uid: 41503
+  - uid: 16213
     components:
     - type: Transform
       pos: -52.5,53.5
@@ -111182,167 +111393,127 @@ entities:
       text: Суперматерия
     - type: WarpPoint
       location: Суперматерия
+  - uid: 16215
+    components:
+    - type: Transform
+      pos: -53.5,13.5
+      parent: 2
 - proto: DefaultStationBeaconEscapePod
   entities:
-  - uid: 16216
+  - uid: 16214
     components:
     - type: Transform
       pos: 92.5,19.5
       parent: 2
     - type: NavMapBeacon
       text: СБ - Капсулы
+    - type: WarpPoint
+      location: СБ - Капсулы
 - proto: DefaultStationBeaconEvac
+  entities:
+  - uid: 16216
+    components:
+    - type: Transform
+      pos: -3.5,-73.5
+      parent: 2
+- proto: DefaultStationBeaconEVAStorage
   entities:
   - uid: 16217
     components:
     - type: Transform
-      pos: -4.5,-72.5
+      pos: -11.5,-13.5
       parent: 2
-    - type: NavMapBeacon
-      text: Отбытие
-    - type: WarpPoint
-      location: Отбытие
-- proto: DefaultStationBeaconEVAStorage
+- proto: DefaultStationBeaconGravGen
   entities:
   - uid: 16218
     components:
     - type: Transform
-      pos: -11.5,-13.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Хранилище EVA
-    - type: WarpPoint
-      location: Командование - Хранение EVA
-- proto: DefaultStationBeaconGravGen
-  entities:
-  - uid: 16219
-    components:
-    - type: Transform
       pos: -71.5,7.5
       parent: 2
-    - type: NavMapBeacon
-      text: Генератор гравитации
-    - type: WarpPoint
-      location: Инженерный - Гравитационный генератор
 - proto: DefaultStationBeaconHOPOffice
+  entities:
+  - uid: 16198
+    components:
+    - type: Transform
+      pos: -11.5,1.5
+      parent: 2
+- proto: DefaultStationBeaconHOSRoom
   entities:
   - uid: 16220
     components:
     - type: Transform
-      pos: -10.5,1.5
+      pos: 40.5,20.5
       parent: 2
-    - type: NavMapBeacon
-      text: Каюта ГП
-    - type: WarpPoint
-      location: Каюта ГП
-- proto: DefaultStationBeaconHOSRoom
+- proto: DefaultStationBeaconJanitorsCloset
   entities:
   - uid: 16221
     components:
     - type: Transform
-      pos: 40.5,20.5
+      pos: -11.5,53.5
       parent: 2
-    - type: NavMapBeacon
-      text: Кабинет ГСБ
-    - type: WarpPoint
-      location: Кабинет ГСБ
-- proto: DefaultStationBeaconJanitorsCloset
+- proto: DefaultStationBeaconKitchen
   entities:
   - uid: 16222
     components:
     - type: Transform
-      pos: -11.5,53.5
+      pos: -30.5,35.5
       parent: 2
-    - type: NavMapBeacon
-      text: Уборщики
-    - type: WarpPoint
-      location: Сервис - Чулан уборщика
-- proto: DefaultStationBeaconKitchen
+- proto: DefaultStationBeaconLawOffice
   entities:
   - uid: 16223
     components:
     - type: Transform
-      pos: -30.5,35.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Кухня
-    - type: WarpPoint
-      location: Сервис - Кухня
-- proto: DefaultStationBeaconLawOffice
-  entities:
-  - uid: 16224
-    components:
-    - type: Transform
       pos: 35.5,-1.5
       parent: 2
-    - type: NavMapBeacon
-      text: Юристы
 - proto: DefaultStationBeaconLibrary
+  entities:
+  - uid: 16199
+    components:
+    - type: Transform
+      pos: -28.5,-4.5
+      parent: 2
+- proto: DefaultStationBeaconMedbay
+  entities:
+  - uid: 16293
+    components:
+    - type: Transform
+      pos: 27.5,-29.5
+      parent: 2
+- proto: DefaultStationBeaconMedical
   entities:
   - uid: 16226
     components:
     - type: Transform
-      pos: -28.5,-3.5
+      pos: 8.5,-25.5
       parent: 2
-    - type: NavMapBeacon
-      text: Библиотека
-    - type: WarpPoint
-      location: Библиотека - Центральный зал
-- proto: DefaultStationBeaconMedbay
+- proto: DefaultStationBeaconMorgue
   entities:
   - uid: 16227
     components:
     - type: Transform
-      pos: 8.5,-25.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Медицинский Отдел
-    - type: WarpPoint
-      location: Медицинский Отдел
-- proto: DefaultStationBeaconMorgue
-  entities:
-  - uid: 16228
-    components:
-    - type: Transform
       pos: 7.5,-50.5
       parent: 2
-    - type: NavMapBeacon
-      text: Морг
-    - type: WarpPoint
-      location: Медотсек - Морг
 - proto: DefaultStationBeaconPermaBrig
+  entities:
+  - uid: 16219
+    components:
+    - type: Transform
+      pos: 83.5,0.5
+      parent: 2
+- proto: DefaultStationBeaconQMRoom
   entities:
   - uid: 16229
     components:
     - type: Transform
-      pos: 82.5,0.5
+      pos: 26.5,36.5
       parent: 2
-    - type: NavMapBeacon
-      text: Пермабриг
-    - type: WarpPoint
-      location: СБ - перманентная тюрьма
-- proto: DefaultStationBeaconQMRoom
+- proto: DefaultStationBeaconRDRoom
   entities:
   - uid: 16230
     components:
     - type: Transform
-      pos: 26.5,36.5
-      parent: 2
-    - type: NavMapBeacon
-      text: Кабинет КМ
-    - type: WarpPoint
-      location: Кабинет КМ
-- proto: DefaultStationBeaconRDRoom
-  entities:
-  - uid: 16231
-    components:
-    - type: Transform
       pos: -18.5,-40.5
       parent: 2
-    - type: NavMapBeacon
-      text: Каюта Научного Руководителя
-    - type: WarpPoint
-      location: Каюта Научного Руководителя
 - proto: DefaultStationBeaconReporter
   entities:
   - uid: 15435
@@ -111361,18 +111532,14 @@ entities:
       text: Робототехника
 - proto: DefaultStationBeaconSalvage
   entities:
-  - uid: 16233
+  - uid: 16231
     components:
     - type: Transform
       pos: 23.5,29.5
       parent: 2
-    - type: NavMapBeacon
-      text: Утилизаторная
-    - type: WarpPoint
-      location: Карго - утилизаторная
 - proto: DefaultStationBeaconScience
   entities:
-  - uid: 15429
+  - uid: 16233
     components:
     - type: Transform
       pos: -33.5,-27.5
@@ -111386,10 +111553,6 @@ entities:
     - type: Transform
       pos: -6.5,-32.5
       parent: 2
-    - type: NavMapBeacon
-      text: Научный Отдел
-    - type: WarpPoint
-      location: Научный Отдел
 - proto: DefaultStationBeaconSecurity
   entities:
   - uid: 16235
@@ -111399,6 +111562,8 @@ entities:
       parent: 2
     - type: NavMapBeacon
       text: СБ - Зал Совещаний
+    - type: WarpPoint
+      location: СБ - Зал Совещаний
 - proto: DefaultStationBeaconSecurityCheckpoint
   entities:
   - uid: 16236
@@ -111465,7 +111630,7 @@ entities:
     - type: NavMapBeacon
       text: Серверная
     - type: WarpPoint
-      location: Научный - серверная
+      location: Серверная
 - proto: DefaultStationBeaconShipyard
   entities:
   - uid: 35576
@@ -111475,7 +111640,7 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconSingularity
   entities:
-  - uid: 41505
+  - uid: 16246
     components:
     - type: Transform
       pos: -78.5,-7.5
@@ -111510,22 +111675,33 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconSupply
   entities:
-  - uid: 16246
+  - uid: 16247
     components:
     - type: Transform
       pos: 20.5,46.5
       parent: 2
-  - uid: 16247
+  - uid: 16249
     components:
     - type: Transform
       pos: 6.5,28.5
       parent: 2
+    - type: NavMapBeacon
+      text: Вход Снабжения
+    - type: WarpPoint
+      location: Вход Снабжения
 - proto: DefaultStationBeaconSurgery
   entities:
   - uid: 16248
     components:
     - type: Transform
       pos: 32.5,-49.5
+      parent: 2
+- proto: DefaultStationBeaconTechVault
+  entities:
+  - uid: 16212
+    components:
+    - type: Transform
+      pos: -35.5,15.5
       parent: 2
 - proto: DefaultStationBeaconTEG
   entities:
@@ -111536,37 +111712,34 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconTelecoms
   entities:
-  - uid: 16249
+  - uid: 41705
     components:
     - type: Transform
-      pos: -113.5,39.5
+      pos: -123.5,38.5
       parent: 2
     - type: NavMapBeacon
-      text: Сервер
+      text: Сервера камер
     - type: WarpPoint
-      location: Сервер
+      location: Сервера камер
+  - uid: 41723
+    components:
+    - type: Transform
+      pos: -113.5,40.5
+      parent: 2
 - proto: DefaultStationBeaconTheater
   entities:
-  - uid: 16250
+  - uid: 16187
     components:
     - type: Transform
-      pos: -11.5,30.5
+      pos: -10.5,30.5
       parent: 2
-    - type: NavMapBeacon
-      text: Театр
-    - type: WarpPoint
-      location: Сервис - Театр
 - proto: DefaultStationBeaconToolRoom
   entities:
-  - uid: 16251
+  - uid: 16186
     components:
     - type: Transform
-      pos: -26.5,12.5
+      pos: -25.5,12.5
       parent: 2
-    - type: NavMapBeacon
-      text: Инструменты
-    - type: WarpPoint
-      location: Инженерный - Основное хранилище инструментов
   - uid: 16252
     components:
     - type: Transform
@@ -111574,6 +111747,8 @@ entities:
       parent: 2
     - type: NavMapBeacon
       text: Малый Склад
+    - type: WarpPoint
+      location: Малый Склад
 - proto: DefaultStationBeaconVault
   entities:
   - uid: 16253
@@ -111588,10 +111763,6 @@ entities:
     - type: Transform
       pos: 52.5,4.5
       parent: 2
-    - type: NavMapBeacon
-      text: Кабинет смотрителя
-    - type: WarpPoint
-      location: Кабинет смотрителя
 - proto: DefibrillatorCabinet
   entities:
   - uid: 41293
@@ -111839,17 +112010,17 @@ entities:
       parent: 2
 - proto: DisposalBend
   entities:
+  - uid: 16228
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,9.5
+      parent: 2
   - uid: 16292
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -54.5,40.5
-      parent: 2
-  - uid: 16293
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 22.5,9.5
       parent: 2
   - uid: 16294
     components:
@@ -122961,18 +123132,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -52.5,51.5
       parent: 2
-  - uid: 18112
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -49.5,54.5
-      parent: 2
-  - uid: 18113
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -55.5,54.5
-      parent: 2
   - uid: 18114
     components:
     - type: Transform
@@ -124956,7 +125115,7 @@ entities:
       pos: -53.5,-32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -362117.12
+      secondsUntilStateChange: -366050.44
       state: Closing
   - uid: 18337
     components:
@@ -125078,7 +125237,7 @@ entities:
       pos: -54.5,-23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -427044.06
+      secondsUntilStateChange: -430977.38
       state: Closing
   - uid: 18355
     components:
@@ -125686,7 +125845,7 @@ entities:
       pos: -4.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -71711.2
+      secondsUntilStateChange: -75644.516
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 26747.2399214
@@ -126145,7 +126304,7 @@ entities:
       pos: 52.5,-33.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -328014.84
+      secondsUntilStateChange: -331948.16
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 7442.325893
@@ -126297,7 +126456,7 @@ entities:
       pos: -23.5,-32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -438732.84
+      secondsUntilStateChange: -442666.16
       state: Closing
   - uid: 18512
     components:
@@ -126629,7 +126788,7 @@ entities:
       pos: -16.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -427152.84
+      secondsUntilStateChange: -431086.16
       state: Closing
   - uid: 18573
     components:
@@ -182628,11 +182787,6 @@ entities:
     - type: Transform
       pos: 60.5,-1.5
       parent: 2
-  - uid: 25968
-    components:
-    - type: Transform
-      pos: -17.5,-52.5
-      parent: 2
   - uid: 25969
     components:
     - type: Transform
@@ -198069,6 +198223,8 @@ entities:
     - type: Transform
       pos: -7.5,-35.5
       parent: 2
+    - type: OreSilo
+      range: 120
 - proto: MachineParticleAcceleratorEmitterForeCircuitboard
   entities:
   - uid: 992
@@ -199018,48 +199174,38 @@ entities:
       parent: 2
 - proto: MindShieldImplanter
   entities:
-  - uid: 16096
+  - uid: 41667
     components:
     - type: Transform
-      parent: 16095
+      parent: 41666
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 16097
+      storage: 41666
+  - uid: 41668
     components:
     - type: Transform
-      parent: 16095
+      parent: 41666
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 16098
+      storage: 41666
+  - uid: 41669
     components:
     - type: Transform
-      parent: 16095
+      parent: 41666
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 16099
+      storage: 41666
+  - uid: 41670
     components:
     - type: Transform
-      parent: 16095
+      parent: 41666
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 16100
-    components:
-    - type: Transform
-      parent: 16095
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 16101
-    components:
-    - type: Transform
-      parent: 16095
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
+      storage: 41666
 - proto: MiningDrill
   entities:
   - uid: 28767
@@ -200435,7 +200581,13 @@ entities:
     - type: Flammable
       nextUpdate: -42.666623
     - type: SolutionContainerManager
-      solutions: null
+      solutions:
+        food:
+          temperature: 293.15
+          canReact: True
+          maxVol: 0
+          name: food
+          reagents: []
       containers:
       - food
     - type: Fixtures
@@ -202060,6 +202212,11 @@ entities:
     components:
     - type: Transform
       pos: -70.5,12.5
+      parent: 2
+  - uid: 41679
+    components:
+    - type: Transform
+      pos: 70.5,24.5
       parent: 2
 - proto: PortableScrubber
   entities:
@@ -215787,6 +215944,16 @@ entities:
     - type: Transform
       pos: -71.5,56.5
       parent: 2
+  - uid: 31377
+    components:
+    - type: Transform
+      pos: -18.5,-51.5
+      parent: 2
+  - uid: 31843
+    components:
+    - type: Transform
+      pos: -20.5,-51.5
+      parent: 2
 - proto: ReinforcedShiv
   entities:
   - uid: 31239
@@ -216544,12 +216711,6 @@ entities:
     - type: Transform
       pos: 48.5,24.5
       parent: 2
-  - uid: 31377
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -18.5,-51.5
-      parent: 2
   - uid: 31378
     components:
     - type: Transform
@@ -216654,12 +216815,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 15.5,-46.5
-      parent: 2
-  - uid: 31398
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -20.5,-51.5
       parent: 2
   - uid: 31399
     components:
@@ -218924,12 +219079,6 @@ entities:
     components:
     - type: Transform
       pos: 66.5,-24.5
-      parent: 2
-  - uid: 31843
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -17.5,-52.5
       parent: 2
   - uid: 31844
     components:
@@ -222508,6 +222657,15 @@ entities:
     - type: Transform
       pos: -49.5,-16.5
       parent: 2
+- proto: SheetUranium1
+  entities:
+  - uid: 41677
+    components:
+    - type: Transform
+      pos: 70.70423,23.657639
+      parent: 2
+    - type: Stack
+      count: 10
 - proto: ShelfChemistryChemistrySecure
   entities:
   - uid: 32468
@@ -224598,13 +224756,7 @@ entities:
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
-        18113:
-        - - Pressed
-          - Toggle
         18111:
-        - - Pressed
-          - Toggle
-        18112:
         - - Pressed
           - Toggle
     - type: Fixtures
@@ -242542,6 +242694,18 @@ entities:
     - type: Transform
       pos: -71.5,-9.5
       parent: 2
+- proto: TeslaGroundingRod
+  entities:
+  - uid: 18112
+    components:
+    - type: Transform
+      pos: -55.5,54.5
+      parent: 2
+  - uid: 18113
+    components:
+    - type: Transform
+      pos: -49.5,54.5
+      parent: 2
 - proto: ThermomachineHeaterMachineCircuitBoard
   entities:
   - uid: 35234
@@ -243923,6 +244087,56 @@ entities:
       parent: 17707
     - type: Physics
       canCollide: False
+- proto: TrackingImplanter
+  entities:
+  - uid: 41671
+    components:
+    - type: Transform
+      parent: 41666
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 41666
+  - uid: 41672
+    components:
+    - type: Transform
+      parent: 41666
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 41666
+  - uid: 41673
+    components:
+    - type: Transform
+      parent: 41666
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 41666
+  - uid: 41674
+    components:
+    - type: Transform
+      parent: 41666
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 41666
+  - uid: 41675
+    components:
+    - type: Transform
+      parent: 41666
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 41666
+  - uid: 41676
+    components:
+    - type: Transform
+      parent: 41666
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 41666
 - proto: TrainingBomb
   entities:
   - uid: 35365
@@ -246247,6 +246461,11 @@ entities:
     components:
     - type: Transform
       pos: 25.5,-70.5
+      parent: 2
+  - uid: 25968
+    components:
+    - type: Transform
+      pos: -17.5,-52.5
       parent: 2
   - uid: 30147
     components:
@@ -273473,7 +273692,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -372153.88
+      secondsUntilStateChange: -376087.2
       state: Opening
   - uid: 40753
     components:

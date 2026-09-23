@@ -146,7 +146,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                 var totalPartBleeds = FixedPoint2.Zero; // Goobstation
                 foreach (var (wound, _) in _wound.GetWoundableWounds(bodyPart))
                 {
-                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
+                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding) // erida edit
                         continue;
 
                     total += bleeds.BleedingAmount;

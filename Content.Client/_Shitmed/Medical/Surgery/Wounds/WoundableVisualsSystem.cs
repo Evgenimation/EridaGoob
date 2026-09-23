@@ -301,7 +301,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
 
             foreach (var wound in group.GroupList.Select(GetEntity))
             {
-                if (TryComp<BleedInflicterComponent>(wound, out var bleeds))
+                if (TryComp<BleedInflicterComponent>(wound, out var bleeds) && bleeds.IsBleeding) // erida edit
                     total += bleeds.BleedingAmount;
             }
         }
