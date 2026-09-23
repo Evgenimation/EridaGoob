@@ -15,7 +15,7 @@
     blue:
       announcement: alert-level-blue-announcement
       sound:
-        path: /Audio/_Erida/Misc/alerts/short_blue.ogg
+        path: /Audio/_Backmen/Misc/new-style-alerts/blue_code_new_style.ogg
         params:
           volume: -2
       color: DodgerBlue
@@ -23,14 +23,14 @@
       shuttleTime: 600
     violet:
       announcement: alert-level-violet-announcement
-      sound: /Audio/_Erida/Misc/alerts/short_purple.ogg
+      sound: /Audio/_Backmen/Misc/new-style-alerts/purple_code_new_style.ogg
       color: Violet
       emergencyLightColor: Violet
       forceEnableEmergencyLights: true
       shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
-      sound: /Audio/_Erida/Misc/alerts/short_yellow.ogg
+      sound: /Audio/_Backmen/Misc/new-style-alerts/yellow_code_new_style.ogg
       color: Yellow
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
@@ -38,7 +38,7 @@
     amber:
       announcement: alert-level-amber-announcement
       sound:
-        path: /Audio/_Erida/Misc/alerts/short_amber.ogg
+        path: /Audio/_Backmen/Misc/new-style-alerts/amber_code_new_style.ogg
         params:
           volume: 4
       color: Orange
@@ -48,7 +48,7 @@
     red:
       announcement: alert-level-red-announcement
       sound:
-        path: /Audio/_Erida/Misc/alerts/short_red.ogg
+        path: /Audio/_Backmen/Misc/new-style-alerts/red_code_new_style.ogg
         params:
           volume: -2
       color: Red
