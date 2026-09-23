@@ -1704,3 +1704,29 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/62
   avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
   title: '[Add] Decal copy button'
+- author: Wendor299 and rOmannn299
+  changes:
+    - type: Add
+      message: 'Генератор в техи СБ '
+    - type: Add
+      message: Больше наэлектризованных окон в СБ и в комнатах глав
+    - type: Add
+      message: Заземляющие стержни для Суперматерии
+    - type: Tweak
+      message: >-
+        Ящик имплантов щита разума в оружейной СБ заменен на ящик смешанных
+        имплантов
+    - type: Fix
+      message: Исправлены маяки, которые не отображались на карте (возможно)
+    - type: Fix
+      message: Некорректные названия некоторых маяков заменены на более подходящие
+    - type: Fix
+      message: >-
+        [Фантомная
+        кровь](https://discord.com/channels/1357728304710422680/1550086387506745436).
+        Жидкие лекарства теперь корректно исправляют спрайт персонажа
+  id: 130
+  time: '2026-09-23T13:54:14.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/63
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: Minor fixes + WenderDelta update
