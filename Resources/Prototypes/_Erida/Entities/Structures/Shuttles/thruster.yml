@@ -242,9 +242,9 @@
     prototype: SyndicateOmniThruster
 
 - type: entity
-  id: [SyndicateOmniThruster, ConstructibleMachine]
+  id: SyndicateOmniThruster
   name: omni-thruster
-  parent: OmniThruster
+  parent: [OmniThruster, ConstructibleMachine]
   components:
   - type: Sprite
     sprite: _Erida/Structures/Shuttles/syndicate_omni_thruster.rsi
