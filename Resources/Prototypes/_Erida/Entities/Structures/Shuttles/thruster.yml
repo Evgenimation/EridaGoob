@@ -18,7 +18,7 @@
 
 - type: entity
   id: ELGyroscope
-  parent: Gyroscope
+  parent: [Gyroscope, ConstructibleMachine]
   name: advanced gyroscope
   components:
   - type: Thruster
@@ -60,7 +60,7 @@
 
 - type: entity
   id: SyndicateGyroscope
-  parent: ELGyroscope
+  parent: [ELGyroscope, ConstructibleMachine]
   name: advanced gyroscope Syndicate
   components:
   - type: Sprite
@@ -95,7 +95,7 @@
 
 - type: entity
   id: InteQGyroscope
-  parent: ELGyroscope
+  parent: [ELGyroscope, ConstructibleMachine]
   name: advanced gyroscope InteQ
   components:
   - type: Sprite
@@ -201,7 +201,7 @@
 - type: entity
   id: SyndicateThruster
   name: thruster
-  parent: Thruster
+  parent: [Thruster, ConstructibleMachine]
   components:
   - type: Machine
     board: SyndicateThrusterMachineCircuitboard
@@ -210,7 +210,7 @@
 
 - type: entity
   id: SyndicateThrusterMediumMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: [BaseMachineCircuitboard, ConstructibleMachine]
   name: large thruster
   components:
   - type: Sprite
@@ -242,7 +242,7 @@
     prototype: SyndicateOmniThruster
 
 - type: entity
-  id: SyndicateOmniThruster
+  id: [SyndicateOmniThruster, ConstructibleMachine]
   name: omni-thruster
   parent: OmniThruster
   components:
@@ -263,7 +263,7 @@
 - type: entity
   id: MercenariesThruster
   name: thruster
-  parent: Thruster
+  parent: [Thruster, ConstructibleMachine]
   components:
   - type: Machine
     board: MercenariesThrusterMachineCircuitboard
@@ -284,7 +284,7 @@
       Steel: 15
 
 - type: entity
-  parent: ThrusterLarge
+  parent: [ThrusterLarge, ConstructibleMachine]
   id: MercenariesThrusterMedium
   name: large thruster
   components:
@@ -302,7 +302,7 @@
 
 - type: entity
   id: MercenariesOmniThruster
-  parent: OmniThruster
+  parent: [OmniThruster, ConstructibleMachine]
   components:
   - type: Machine
     board: MercenariesOmniThrusterMachineCircuitboard
@@ -321,7 +321,7 @@
 - type: entity
   id: PiratesThruster
   name: thruster
-  parent: Thruster
+  parent: [Thruster, ConstructibleMachine]
   components:
   - type: Machine
     board: PiratesThrusterMachineCircuitboard
@@ -342,7 +342,7 @@
       Steel: 15
 
 - type: entity
-  parent: ThrusterLarge
+  parent: [ThrusterLarge, ConstructibleMachine]
   id: PiratesThrusterMedium
   name: large thruster
   components:
@@ -360,7 +360,7 @@
 
 - type: entity
   id: PiratesOmniThruster
-  parent: OmniThruster
+  parent: [OmniThruster, ConstructibleMachine]
   components:
   - type: Machine
     board: PiratesOmniThrusterMachineCircuitboard
@@ -379,7 +379,7 @@
 - type: entity
   id: inteqThruster
   name: thruster
-  parent: Thruster
+  parent: [Thruster, ConstructibleMachine]
   components:
   - type: Machine
     board: InteQThrusterMachineCircuitboard
@@ -400,7 +400,7 @@
       Steel: 15
 
 - type: entity
-  parent: ThrusterLarge
+  parent: [ThrusterLarge, ConstructibleMachine]
   id: inteqThrusterMedium
   name: large thruster
   components:
@@ -418,7 +418,7 @@
 
 - type: entity
   id: inteqOmniThruster
-  parent: OmniThruster
+  parent: [OmniThruster, ConstructibleMachine]
   components:
   - type: Machine
     board: inteqOmniThrusterMachineCircuitboard
