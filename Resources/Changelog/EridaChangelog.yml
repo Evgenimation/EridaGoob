@@ -1904,3 +1904,14 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/71
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: InteQ
+- author: rOmannn299
+  changes:
+    - type: Add
+      message: Пистолет ГСБ на Аспиде
+    - type: Tweak
+      message: Небольшие изменения техов на Аспиде
+  id: 139
+  time: '2026-10-12T06:58:30.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/75
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: remap-Aspid
