@@ -1946,3 +1946,14 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/73
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: remap-InteQ
+- author: OW
+  changes:
+    - type: Tweak
+      message: Интерфейс магазина губ-токенов
+    - type: Fix
+      message: Корректная выдача заметки после покупки губ-токена
+  id: 141
+  time: '2026-10-12T14:55:06.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/74
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: Shop-fix
