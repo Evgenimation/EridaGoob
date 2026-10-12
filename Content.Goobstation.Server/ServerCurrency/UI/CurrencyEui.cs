@@ -7,6 +7,7 @@ using Content.Server._Erida.Discord;
 using Content.Server.Administration.Notes;
 using Content.Server.Chat.Managers;
 using Content.Server.EUI;
+using Content.Shared.Database;
 using Content.Shared.Eui;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -20,10 +21,14 @@ namespace Content.Goobstation.Server.ServerCurrency.UI
         [Dependency] private readonly IPrototypeManager _protoMan = default!;
         [Dependency] private readonly IChatManager _chat = default!; // Erida edit
         [Dependency] private readonly EridaWebhooks _webhooks = default!; // Erida edit
+        [Dependency] private readonly ILogManager _log = default!;
+
+        private readonly ISawmill _sawmill;
 
         public CurrencyEui()
         {
             IoCManager.InjectDependencies(this);
+            _sawmill = _log.GetSawmill("server.currency");
         }
 
         public override void Opened()
@@ -60,9 +65,18 @@ namespace Content.Goobstation.Server.ServerCurrency.UI
             if (balance < token.Price)
                 return;
 
-            await _notesMan.AddAdminRemark(Player, Player.UserId, 0,
-                Loc.GetString(token.AdminNote), 0, false, null);
             _currencyMan.RemoveCurrency(Player.UserId, token.Price);
+
+            // erida edit
+            try
+            {
+                await _notesMan.AddSystemRemark(Player.UserId, NoteType.Note,
+                    Loc.GetString(token.AdminNote), NoteSeverity.None, false, null);
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"Failed to add token note: {e}");
+            }
 
             // Erida start
             _chat.SendAdminAnnouncement($"{Player.Name} " + Loc.GetString(token.AdminNote));
