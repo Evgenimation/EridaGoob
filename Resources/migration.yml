@@ -1011,3 +1011,6 @@ BorgModuleAdvancedChemical: BorgModuleAdvancedTopical
 
 # 2026-09-03
 LauncherSyringe: SyringePistol
+
+ChairOfficeLight: SpawnVehicleChairOfficeLight
+ChairOfficeDark: SpawnVehicleChairOfficeDark
