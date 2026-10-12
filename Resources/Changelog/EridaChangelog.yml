@@ -1915,3 +1915,34 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/75
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: remap-Aspid
+- author: rOmannn299
+  changes:
+    - type: Add
+      message: Стиральные машины на аванпост интека
+    - type: Add
+      message: Больше плат и каркасов машин на аванпост интека
+    - type: Add
+      message: Переработчик мусора для доп ресурсов, больше мусора по аванпосту интека
+    - type: Add
+      message: >-
+        Ослабленная версия разрушителя доступов на аванпост, доступ к некоторым
+        машинам убран раундстартом (остальное взламывайте)
+    - type: Tweak
+      message: >-
+        Уменьшено количество турелей, изменена позиция некоторых, ров с лавой
+        увеличен на 1 тайл
+    - type: Tweak
+      message: Аванпост Интека больше не видно на сканнере масс
+    - type: Tweak
+      message: Убраны спавнеры мин на аванпосте Интека
+    - type: Tweak
+      message: >-
+        Добавлено больше скрубберов и вентиляций на аванпост, старые соединены с
+        сигнализациями
+    - type: Tweak
+      message: Прочие мелкие фиксы и изменения баланса аванпоста Интек
+  id: 140
+  time: '2026-10-12T06:59:15.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/73
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: remap-InteQ
