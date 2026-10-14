@@ -24,9 +24,9 @@ async function main() {
     const pr = await axios.get(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/pulls/${process.env.PR_NUMBER}`);
     const { merged_at, body, user, title } = pr.data;
 
-    const media = getMedia(commentlessBody); // Erida edit
-
     let commentlessBody = (body || "").replace(CommentRegex, '');
+
+    const media = getMedia(commentlessBody); // Erida edit
 
     const headerMatch = HeaderRegex.exec(commentlessBody);
     if (!headerMatch) {
