@@ -1957,3 +1957,15 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/74
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: Shop-fix
+- author: Lytheriia
+  changes:
+    - type: Add
+      message: Новые предметы для предстоящего праздника
+  id: 142
+  time: '2026-10-14T14:23:43.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/76
+  avatar_url: https://avatars.githubusercontent.com/u/289052288?v=4
+  title: '[Add] Halloween decorations'
+  media:
+    - >-
+      https://github.com/user-attachments/assets/ba04ae16-2493-44b6-81b5-1b89cd0389af
