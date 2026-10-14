@@ -50,6 +50,7 @@ MEDIA_FILE_EXTENSIONS = frozenset({
 })
 _media_counter = 0
 
+ChangelogEntry = dict[str, Any]
 
 class MediaTypeError(RuntimeError):
     pass
@@ -123,9 +124,6 @@ def download_media(session: requests.Session, url: str):
 
     _media_counter += 1
     return f"changelog-media-{_media_counter}{ext}", mime, bytes(data), url
-
-ChangelogEntry = dict[str, Any]
-
 
 def main():
     webhook_erida = os.environ.get("DISCORD_WEBHOOK_URL_ERIDA")
