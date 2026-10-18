@@ -1969,3 +1969,14 @@ Entries:
   media:
     - >-
       https://github.com/user-attachments/assets/ba04ae16-2493-44b6-81b5-1b89cd0389af
+- author: Wendor
+  changes:
+    - type: Add
+      message: Возможность общаться через войс-чат
+    - type: Tweak
+      message: Старая система голосового чата
+  id: 143
+  time: '2026-10-18T17:53:30.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/77
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: Voice
