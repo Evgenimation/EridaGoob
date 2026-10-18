@@ -15,11 +15,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </PropertyGroup>
   <Import Project="../MSBuild/Content.props" />
   <ItemGroup>
-    <PackageReference Include="Concentus" />
+    <!-- erida edit: Concentus replaced with NWaves for voice chat -->
+    <PackageReference Include="NWaves" />
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
 
   <Import Project="..\RobustToolbox\Imports\Shared.props" />
+
+  <!-- erida edit: voice chat web assets -->
+  <ItemGroup>
+    <EmbeddedResource Include="VoiceChat\Web\**" LogicalName="VoiceChat.Web.%(Filename)%(Extension)" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Content.Goobstation.Maths\Content.Goobstation.Maths.csproj" />

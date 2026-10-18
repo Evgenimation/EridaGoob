@@ -3,6 +3,7 @@
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Communications;
+using Content.Goobstation.Shared.VoiceChat; // erida edit
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 
@@ -28,6 +29,8 @@ namespace Content.Client.Communications.UI
             _menu.OnBroadcast += BroadcastButtonPressed;
             _menu.OnAlertLevel += AlertLevelSelected;
             _menu.OnEmergencyLevel += EmergencyShuttleButtonPressed;
+            _menu.Console = Owner; // erida edit
+            _menu.OnVoiceBroadcast += () => SendMessage(new VoiceBroadcastToggleMessage()); // erida edit
         }
 
         public void AlertLevelSelected(string level)

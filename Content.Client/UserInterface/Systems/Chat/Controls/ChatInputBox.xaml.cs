@@ -4,6 +4,7 @@ using Content.Client.Stylesheets;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing; // erida edit
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
@@ -17,6 +18,7 @@ public class ChatInputBox : PanelContainer
     public readonly ChannelSelectorButton ChannelSelector;
     public readonly HistoryLineEdit Input;
     public readonly ChannelFilterButton FilterButton;
+    public readonly VoiceRadioButton VoiceRadio; // erida edit
     protected readonly BoxContainer Container;
     protected ChatChannel ActiveChannel { get; private set; } = ChatChannel.Local;
 
@@ -37,6 +39,17 @@ public class ChatInputBox : PanelContainer
             MinWidth = 75
         };
         Container.AddChild(ChannelSelector);
+        // erida edit
+        VoiceRadio = new VoiceRadioButton
+        {
+            StyleClasses = { ChannelSelectorItemButton.StyleClassChatSelectorOptionButton },
+        };
+        Container.AddChild(VoiceRadio);
+        if (IoCManager.Instance is { } ioc && ioc.TryResolveType<IChatVoiceControls>(out var voiceControls))
+        {
+            foreach (var control in voiceControls.CreateControls())
+                Container.AddChild(control);
+        }
         Input = new HistoryLineEdit
         {
             Name = "Input",
@@ -53,6 +66,12 @@ public class ChatInputBox : PanelContainer
         Container.AddChild(FilterButton);
         AddStyleClass(StyleClassChatPanel);
         ChannelSelector.OnChannelSelect += UpdateActiveChannel;
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args) // erida edit
+    {
+        base.FrameUpdate(args);
+        VoiceRadio.UpdateState();
     }
 
     private void UpdateActiveChannel(ChatSelectChannel selectedChannel)

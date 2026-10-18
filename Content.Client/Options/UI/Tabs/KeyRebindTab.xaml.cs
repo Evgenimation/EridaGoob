@@ -238,6 +238,9 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.FocusConsoleChat);
             AddButton(ContentKeyFunctions.CycleChatChannelForward);
             AddButton(ContentKeyFunctions.CycleChatChannelBackward);
+            // erida edit
+            AddButton(ContentKeyFunctions.VoicePushToTalk);
+            AddButton(ContentKeyFunctions.VoicePushToTalkRadio);
             AddButton(ContentKeyFunctions.OpenCharacterMenu);
             AddButton(ContentKeyFunctions.OpenCraftingMenu);
             AddButton(ContentKeyFunctions.OpenGuidebook);

@@ -497,4 +497,11 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
     {
         return this.IsPowered(entity, EntityManager);
     }
+
+    // erida edit
+    public void KeepCallAlive(Entity<TelephoneComponent> entity)
+    {
+        if (entity.Comp.CurrentState == TelephoneState.InCall)
+            entity.Comp.StateStartTime = _timing.CurTime;
+    }
 }

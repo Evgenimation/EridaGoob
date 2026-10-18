@@ -78,6 +78,7 @@
     transmitFrequencyId: ShuttleTimer
   - type: RadarConsole
     followEntity: false
+  - type: VoiceBroadcastConsole # erida edit
   - type: CommunicationsConsole
     canShuttle: false
     title: comms-console-announcement-title-station-ai
