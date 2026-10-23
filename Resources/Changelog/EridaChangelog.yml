@@ -1980,3 +1980,26 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/77
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: Voice
+- author: OW
+  changes:
+    - type: Add
+      message: >-
+        [Возвращение старого
+        контента](https://discord.com/channels/1357728304710422680/1560341452180033678)
+    - type: Add
+      message: >-
+        [Возможность менять свое имя за
+        InteQ](https://discord.com/channels/1357728304710422680/1559549267100700842)
+    - type: Tweak
+      message: >-
+        [Коса командира InteQ не
+        заряжается](https://discord.com/channels/1357728304710422680/1559206767097815060)
+    - type: Fix
+      message: >-
+        ["Вечные лаги и
+        вылеты"](https://discord.com/channels/1357728304710422680/1561543291483193344)
+  id: 144
+  time: '2026-10-23T01:19:26.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/78
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: Fix minor issues (1/?)
