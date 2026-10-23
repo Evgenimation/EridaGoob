@@ -464,12 +464,6 @@ public sealed partial class VoiceChatManager
 
         if (file == "ws")
         {
-            if (context.IsWebSocketRequest && _server is { } server)
-            {
-                await server.RunAcceptedAsync(context);
-                return true;
-            }
-
             await context.RespondAsync("The voice chat WebSocket is not proxied here. Forward /voice/ws to voice.ws_bind in your reverse proxy.", HttpStatusCode.NotFound);
             return true;
         }
