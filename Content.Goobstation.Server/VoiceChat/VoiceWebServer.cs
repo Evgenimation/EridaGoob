@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using Content.Goobstation.Shared.VoiceChat;
+using Robust.Server.ServerStatus;
 using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.VoiceChat;
@@ -167,6 +168,51 @@ public sealed class VoiceWebServer : IDisposable
             }
 
             _ = Task.Run(() => HandleClientAsync(client));
+        }
+    }
+
+    public async Task RunAcceptedAsync(IStatusHandlerContext context)
+    {
+        if (Interlocked.Increment(ref _connectionCount) > MaxConnections)
+        {
+            Interlocked.Decrement(ref _connectionCount);
+            await context.RespondAsync("Too many voice connections.", HttpStatusCode.ServiceUnavailable);
+            return;
+        }
+
+        IPAddress? reservedAddress = null;
+        try
+        {
+            var headers = context.RequestHeaders.ToDictionary(
+                h => h.Key,
+                h => h.Value.ToString(),
+                StringComparer.OrdinalIgnoreCase);
+            var address = ResolveAddress(context.RemoteEndPoint.Address, headers);
+
+            if (!TryReserveAddress(address))
+            {
+                await context.RespondAsync("Too many voice connections from this address.", HttpStatusCode.TooManyRequests);
+                return;
+            }
+
+            reservedAddress = address;
+
+            using var socket = await context.AcceptWebSocketAsync();
+            await RunConnectionAsync(socket, address);
+        }
+        catch (Exception e) when (e is IOException or SocketException or WebSocketException or OperationCanceledException or ObjectDisposedException)
+        {
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"Unhandled error in voice WebSocket connection: {e}");
+        }
+        finally
+        {
+            if (reservedAddress != null)
+                ReleaseAddress(reservedAddress);
+
+            Interlocked.Decrement(ref _connectionCount);
         }
     }
 
