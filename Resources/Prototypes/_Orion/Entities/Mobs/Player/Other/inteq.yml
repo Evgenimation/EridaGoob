@@ -37,6 +37,7 @@
     understands:
     - TauCetiBasic
     - OldFastCodes
+  - type: InteQCallsign
 - type: randomHumanoidSettings
   parent: InteQVanguard
   id: InteQVanguardLeader

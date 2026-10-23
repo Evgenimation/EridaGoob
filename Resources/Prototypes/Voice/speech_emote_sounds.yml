@@ -49,6 +49,8 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Wink: # erida edit
       collection: Wink
+    Moan: # erida edit
+      collection: MaleMoan
 
 - type: emoteSounds
   id: FemaleHuman
@@ -99,6 +101,8 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Wink: # erida edit
       collection: Wink
+    Moan: # erida edit
+      collection: FemaleMoan
 
 - type: emoteSounds ## GOOB CONTENT START
   id: MonkeyMode
@@ -195,6 +199,8 @@
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
     ReptilianScreech: #Omu
       collection: ReptilianScreech
+    Moan: # erida edit
+      collection: MaleMoan
 
 
 - type: emoteSounds
@@ -246,6 +252,8 @@
       path: /Audio/_Omu/Voice/Reptilian/Reptilian_lizard_rattle.ogg
     ReptilianScreech: #Omu
       collection: ReptilianScreech
+    Moan: # erida edit
+      collection: FemaleMoan
 
 - type: emoteSounds
   id: MaleSlime
@@ -298,6 +306,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Moan: # erida edit
+      collection: MaleMoan
   params:
     variation: 0.125
 
@@ -352,6 +362,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Moan: # erida edit
+      collection: FemaleMoan
   params:
     variation: 0.125
 
@@ -545,6 +557,8 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Moan: # erida edit
+      collection: MaleMoan
   params:
     variation: 0.125
     pitch: 0.75
@@ -592,6 +606,8 @@
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Moan: # erida edit
+      collection: FemaleMoan
   params:
     variation: 0.125
     pitch: 0.75
@@ -699,6 +715,8 @@
       collection: MaleCoughs
     Belch: # Frontier
       collection: Belch # Frontier
+    Moan: # erida edit
+      collection: MaleMoan
 
 - type: emoteSounds
   id: FemaleMoth
@@ -751,6 +769,8 @@
       collection: FemaleCoughs
     Belch: # Frontier
       collection: Belch # Frontier
+    Moan: # erida edit
+      collection: FemaleMoan
 
 - type: emoteSounds
   id: UnisexSilicon

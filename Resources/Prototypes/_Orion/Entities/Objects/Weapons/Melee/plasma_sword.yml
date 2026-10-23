@@ -45,7 +45,7 @@
     generated:
       reagents:
       - ReagentId: Plasma
-        Quantity: 0.005
+        Quantity: 0.05
   - type: ComponentToggler
     components:
     - type: Cautery # Shitmed

@@ -60,6 +60,7 @@
       understands:
       - TauCetiBasic
       - OldFastCodes
+    - type: InteQCallsign
   - type: RandomHumanoidAppearance
     randomizeName: false
   - type: RandomMetadata
