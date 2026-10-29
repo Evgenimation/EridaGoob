@@ -2003,3 +2003,12 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/78
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: Fix minor issues (1/?)
+- author: Mr
+  changes:
+    - type: Add
+      message: Возвращён старый контент с прошлой сборки, дополняющий текущий лаваленд
+  id: 145
+  time: '2026-10-29T07:22:42.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/80
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: Update lavalend
