@@ -103,4 +103,10 @@ public enum CollisionGroup
 
     BlobTileLayer = Opaque | BlobImpassable | BulletImpassable
     // end-goobstation: blob
+
+    // erida edit start
+    ,
+    Vehicle = 1 << 10,
+    BarricadeImpassable = 1 << 11,
+    // erida edit end
 }
