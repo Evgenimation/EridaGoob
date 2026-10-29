@@ -558,7 +558,8 @@ public sealed class DragDropSystem : SharedDragDropSystem
         base.FrameUpdate(frameTime);
 
         // Update position every frame to make it smooth.
-        if (Exists(_dragShadow))
+        // erida edit
+        if (Exists(_dragShadow) && Transform(_dragShadow.Value).ParentUid.IsValid())
         {
             var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
             _transformSystem.SetWorldPosition(_dragShadow.Value, mousePos.Position);
