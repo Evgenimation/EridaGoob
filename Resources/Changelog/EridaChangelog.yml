@@ -2021,3 +2021,12 @@ Entries:
   url: https://github.com/dead-space-server/EridaGoob/pull/79
   avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
   title: Core content
+- author: Mr
+  changes:
+    - type: Tweak
+      message: Хэллоуинское обновление на основных картах
+  id: 147
+  time: '2026-10-29T21:39:17.0000000+00:00'
+  url: https://github.com/dead-space-server/EridaGoob/pull/81
+  avatar_url: https://avatars.githubusercontent.com/u/178937366?v=4
+  title: '[Mapping] Halloween-Stations'
