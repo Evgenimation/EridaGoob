@@ -45,6 +45,10 @@
           - id: ClothingOuterArmorCult
           - id: ClothingHeadHelmetCult
           - id: ClothingShoesCult
+    - !type:AllSelector
+      children:
+      - id: WarpCubeB
+      - id: WarpCubeR
 #Erida-End
 
 - type: entityTable
