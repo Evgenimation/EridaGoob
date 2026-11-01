@@ -6,6 +6,11 @@
   # erida edit
   editorSuffix: rmc-vehicle
   components:
+  # Erida start
+  - type: HardpointState
+  - type: ContainerContainer
+  - type: GravityAffected
+  # Erida end
   - type: Vehicle
     movementKind: Grid
   - type: LagCompensation
@@ -109,7 +114,7 @@
         state: wheels_1
   - type: PointLight
     enabled: false
-    radius: 12
+    radius: 8 # Erida edit
     energy: 3
     softness: 2
     autoRot: true
@@ -123,6 +128,17 @@
         type: VehicleWeaponsBoundUserInterface
   - type: VehicleWeapons
   - type: VehicleHardpointVisuals
+    # Erida start
+    layers:
+    - layer: armor
+      state: ""
+    - layer: primary
+      state: ""
+    - layer: secondary
+      state: ""
+    - layer: support
+      state: ""
+    # Erida end
   - type: InputMover
   - type: ItemSlots
     slots:
@@ -184,6 +200,10 @@
       slotType: HardpointSlotTypeTreads
       insertDelay: 2.0
   - type: VehicleWheelSlots
+    # Erida start
+    slots:
+    - wheel-1
+    # Erida end
     slotCount: 1
   - type: HardpointIntegrity
     maxIntegrity: 1000
@@ -205,6 +225,15 @@
   parent: VehicleTankBase
   id: VehicleTank
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      armor: !type:ContainerSlot
+      primary: !type:ContainerSlot
+      secondary: !type:ContainerSlot
+      support: !type:ContainerSlot
+      wheel-1: !type:ContainerSlot
+  # Erida end
   - type: VehicleEnter
     interiorPath: /Maps/_RMC14/Vehicles/tank_interior.yml
     enterDoAfter: 1.0

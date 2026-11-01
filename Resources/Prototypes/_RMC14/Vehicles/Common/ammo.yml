@@ -446,6 +446,11 @@
   name: LTB cannon shell
   categories: [ HideSpawnMenu ]
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  # Erida end
   - type: TriggerOnCollide
     fixtureID: projectile
     ignoreOtherNonHard: false

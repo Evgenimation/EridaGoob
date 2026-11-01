@@ -4,6 +4,11 @@
   name: LTB cannon
   description: A light tank cannon hardpoint.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: ltb_cannon
   - type: HardpointItem
@@ -60,6 +65,11 @@
   name: LTAAAP minigun
   description: A light anti-air minigun hardpoint.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: ltaaap_minigun
   - type: HardpointItem
@@ -85,6 +95,7 @@
     overlayRsi: _RMC14/Structures/Vehicles/tank.rsi
     overlayState: ltaaap_minigun_0
   - type: Gun
+    burstCooldownModified: 0.25 # Erida edit
     fireRate: 1.5
     selectedMode: FullAuto
     availableModes:
@@ -138,6 +149,11 @@
   name: ACE autocannon
   description: An ACE autocannon hardpoint.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: ace_autocannon
   - type: HardpointItem
@@ -197,6 +213,11 @@
   name: DRGN flamer
   description: A DRGN flamer hardpoint.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: drgn_flamer
   - type: HardpointItem

@@ -14,6 +14,13 @@
   name: tank turret
   description: A tank turret hardpoint.
   components:
+  # Erida start
+  - type: HardpointState
+  - type: ContainerContainer
+    containers:
+      turret-cannon: !type:ContainerSlot
+      turret-launcher: !type:ContainerSlot
+  # Erida end
   - type: Sprite
     sprite: _RMC14/Structures/Vehicles/tank.rsi
     state: tank_turret_0

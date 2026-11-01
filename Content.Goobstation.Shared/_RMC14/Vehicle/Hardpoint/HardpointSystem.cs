@@ -84,7 +84,7 @@ public sealed partial class HardpointSystem : EntitySystem
         SubscribeLocalEvent<HardpointSlotsComponent, EntRemovedFromContainerMessage>(OnRemoved);
         SubscribeLocalEvent<HardpointSlotsComponent, VehicleCanRunEvent>(OnVehicleCanRun);
         SubscribeLocalEvent<HardpointSlotsComponent, DamageModifyEvent>(OnVehicleDamageModify);
-        SubscribeLocalEvent<HardpointIntegrityComponent, ComponentInit>(OnHardpointIntegrityInit);
+        SubscribeLocalEvent<HardpointIntegrityComponent, MapInitEvent>(OnHardpointIntegrityInit); // Erida edit
         SubscribeLocalEvent<HardpointIntegrityComponent, InteractUsingEvent>(
             OnHardpointRepair,
             before: new[] { typeof(ItemSlotsSystem) });
@@ -769,7 +769,7 @@ public sealed partial class HardpointSystem : EntitySystem
         return MathF.Max(modifiedDamage.GetTotal().Float(), 0f);
     }
 
-    private void OnHardpointIntegrityInit(Entity<HardpointIntegrityComponent> ent, ref ComponentInit args)
+    private void OnHardpointIntegrityInit(Entity<HardpointIntegrityComponent> ent, ref MapInitEvent args) // Erida edit
     {
         if (ent.Comp.Integrity <= 0f)
             ent.Comp.Integrity = ent.Comp.MaxIntegrity;

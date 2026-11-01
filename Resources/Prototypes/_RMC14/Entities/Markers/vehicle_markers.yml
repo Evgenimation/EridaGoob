@@ -22,7 +22,7 @@
     drawdepth: LowFloors
     texture: /Textures/_RMC14/Tiles/floors/void.png
   - type: VehicleExit
-  - type: Vehicle
+  # - type: Vehicle # Erida edit
   - type: Physics
     bodyType: Static
     canCollide: true

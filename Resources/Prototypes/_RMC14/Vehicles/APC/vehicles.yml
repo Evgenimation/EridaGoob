@@ -6,6 +6,11 @@
   # erida edit
   editorSuffix: rmc-vehicle
   components:
+  # Erida start
+  - type: HardpointState
+  - type: ContainerContainer
+  - type: GravityAffected
+  # Erida end
   - type: Vehicle
     movementKind: Grid
   - type: LagCompensation
@@ -98,8 +103,10 @@
         state: wheels_1
   - type: PointLight
     enabled: false
-    radius: 12
-    energy: 2.5
+    # Erida start
+    radius: 7
+    energy: 3
+    # Erida end
     softness: 2
     autoRot: true
     offset: "0,0.9"
@@ -166,6 +173,10 @@
       slotType: HardpointSlotTypeWheel
       insertDelay: 1.5
   - type: VehicleWheelSlots
+    # Erida start
+    slots:
+    - wheel-1
+    # Erida end
     slotCount: 1
   - type: HardpointIntegrity
     maxIntegrity: 1000
@@ -190,6 +201,16 @@
   parent: VehicleAPCBase
   id: VehicleAPC
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      wheel-1: !type:ContainerSlot
+      port-gun-north: !type:ContainerSlot
+      port-gun-south: !type:ContainerSlot
+      primary: !type:ContainerSlot
+      secondary: !type:ContainerSlot
+      support: !type:ContainerSlot
+  # Erida end
   - type: VehicleEnter
     interiorPath: /Maps/_RMC14/Vehicles/apc_transport_interior.yml
     enterDoAfter: 1.0
@@ -218,6 +239,16 @@
   name: armored personnel carrier (medical)
   description: A medical-configured APC outfitted with triage markings.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      wheel-1: !type:ContainerSlot
+      port-gun-north: !type:ContainerSlot
+      port-gun-south: !type:ContainerSlot
+      primary: !type:ContainerSlot
+      secondary: !type:ContainerSlot
+      support: !type:ContainerSlot
+  # Erida end
   - type: Sprite
     layers:
     - map: [ base ]
@@ -273,6 +304,16 @@
   name: armored personnel carrier (command)
   description: A command-configured APC bristling with sensors and comms gear.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      wheel-1: !type:ContainerSlot
+      port-gun-north: !type:ContainerSlot
+      port-gun-south: !type:ContainerSlot
+      primary: !type:ContainerSlot
+      secondary: !type:ContainerSlot
+      support: !type:ContainerSlot
+  # Erida end
   - type: Sprite
     layers:
     - map: [ base ]

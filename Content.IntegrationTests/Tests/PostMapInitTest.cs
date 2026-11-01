@@ -33,6 +33,7 @@ namespace Content.IntegrationTests.Tests
     {
         private const bool SkipTestMaps = true;
         private const string TestMapsPath = "/Maps/Test/";
+        private const string EventMapsPath = "/Maps/_Erida/ForEvents/"; // Erida edit
 
         private static readonly string[] NoSpawnMaps =
         {
@@ -682,6 +683,11 @@ namespace Content.IntegrationTests.Tests
                 {
                     continue;
                 }
+
+                // Erida start
+                if (rootedPath.ToString().StartsWith(EventMapsPath, StringComparison.Ordinal))
+                    continue;
+                // Erida end
 
                 mapPaths.Add(rootedPath);
             }

@@ -85,6 +85,11 @@
   name: ACE flak round
   categories: [ HideSpawnMenu ]
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  # Erida end
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
     drawdepth: Effects

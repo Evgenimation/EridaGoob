@@ -446,6 +446,7 @@
   components:
   # erida edit
   - type: Physics
+    canCollide: false # Erida edit
     bodyType: Static
   - type: Sprite
     sprite: _RMC14/Structures/Vehicles/Interiors/general.rsi

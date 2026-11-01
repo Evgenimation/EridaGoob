@@ -47,6 +47,11 @@
   name: smoke launcher
   description: A smoke launcher support attachment for a tank.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: slauncher_0
   - type: HardpointItem
@@ -98,6 +103,11 @@
   name: flare module
   description: A flare launcher support attachment for a tank.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: slauncher_1
   - type: HardpointItem

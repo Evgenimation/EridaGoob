@@ -32,6 +32,11 @@
   name: APC frontal cannon
   description: A fixed forward cannon for an APC hardpoint.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: front_cannon
   - type: HardpointItem
@@ -74,6 +79,11 @@
   name: APC dual cannon
   description: A dual cannon turret for an APC hardpoint.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: dual_cannon
   - type: HardpointItem
@@ -143,6 +153,11 @@
   name: APC flare launcher
   description: A flare launcher hardpoint for APC support slots.
   components:
+  # Erida start
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  # Erida end
   - type: Sprite
     state: flare_launcher
   - type: HardpointItem
